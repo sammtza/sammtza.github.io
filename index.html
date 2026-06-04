@@ -207,15 +207,14 @@
             <strong><em>Saturno Milanillos</em></strong> (Broken English, 2018),
             <strong><em>Removiste la piedra</em></strong> (Herring Publishers, 2020),
             <strong><em>Y la luna lucía luminosa</em></strong> (Herring Publishers, 2024),
-            <strong><em>Sentémonos en la tierra</em></strong> y
-            <strong><em>???;) — Pregunta pregunta pregunta guiño</em></strong>
-            (ambos en Taller de las flores raras, 2025).
+            <strong><em>Sentémonos en la tierra</em></strong> (Taller de las flores raras, 2025)
+            y <strong><em>???;) — Pregunta pregunta pregunta guiño</em></strong> (CC, 2025).
             Sus textos han aparecido en <em>Tierra Adentro</em> (FCE), <em>Punto en Línea</em> (UNAM)
             y <em>Opción</em> (ITAM), entre otras publicaciones.
           </p>
           <p>
-            Actualmente trabaja en <strong><em>Nuestra Eternidad</em></strong>,
-            proyecto postulado al programa Jóvenes Creadores del FONCA 2026.
+            Actualmente trabaja en <strong><em>Nuestra Eternidad</em></strong>
+            y <strong><em>Labyrinthos</em></strong>.
             Publica <strong>Cuadernos del Ser</strong>, una bitácora de escritura viva en Substack.
           </p>
         </div>
@@ -372,6 +371,18 @@
         <div class="divider-line"></div>
       </div>
       <div class="textos-list">
+        <a class="texto-item" href="https://www.goodreads.com/es/book/show/33620091-y-la-luna-luc-a-luminosa" target="_blank" rel="noopener">
+          <span class="texto-year-col">2024</span>
+          <span class="texto-title-col">Reseñas de lectores de <em>Y la luna lucía luminosa</em></span>
+          <span class="texto-pub-col">Goodreads</span>
+          <span class="texto-arrow">→</span>
+        </a>
+        <a class="texto-item" href="https://contigoenladistancia.cultura.gob.mx/detalle/takeover-de-samuel-martinez-andrade" target="_blank" rel="noopener">
+          <span class="texto-year-col">2020</span>
+          <span class="texto-title-col">Takeover de Samuel Martínez Andrade</span>
+          <span class="texto-pub-col">Cultura CDMX · MACQ</span>
+          <span class="texto-arrow">→</span>
+        </a>
         <a class="texto-item" href="https://periodicopoetico.wordpress.com/2025/04/28/entrevista-de-ana-laura-bravo-con-samuel-martinez-andrade-sobre-su-libro-y-la-luna-lucia-luminosa/" target="_blank" rel="noopener">
           <span class="texto-year-col">2025</span>
           <span class="texto-title-col">Entrevista sobre <em>Y la luna lucía luminosa</em></span>
@@ -427,3 +438,39 @@
       <div class="footer-inner">
         <span class="footer-name">Samuel Martínez Andrade</span>
         <ul class="footer-links">
+          <li><a href="https://instagram.com/sammtza" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="https://medium.com/@sammtza" target="_blank" rel="noopener">Medium</a></li>
+          <li><a href="mailto:sammtza93@gmail.com">Correo</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    async function loadSubstack() {
+      const feed = document.getElementById('substack-feed');
+      const fallback = '<a class="substack-post" href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener"><p class="substack-post-title">Ver todas las entradas en Substack →</p></a>';
+      try {
+        const url = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fcuadernosdelser.substack.com%2Ffeed&count=3&api_key=';
+        const res = await fetch(url, { signal: AbortSignal.timeout(6000) });
+        if (!res.ok) throw new Error('fetch');
+        const data = await res.json();
+        if (!data.items || !data.items.length) throw new Error('empty');
+        feed.innerHTML = data.items.map(item => {
+          const d = new Date(item.pubDate);
+          const date = d.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+          return '<a class="substack-post" href="' + item.link + '" target="_blank" rel="noopener">'
+            + '<p class="substack-post-date">' + date + '</p>'
+            + '<p class="substack-post-title">' + item.title + '</p>'
+            + '</a>';
+        }).join('');
+      } catch(e) {
+        feed.innerHTML = fallback;
+      }
+    }
+    loadSubstack();
+  </script>
+
+</body>
+</html>
