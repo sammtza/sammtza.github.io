@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samuel Martínez Andrade — Escritor</title>
+  <meta name="description" content="Samuel Martínez Andrade. Escritor y poeta mexicano. Autor de Y la luna lucía luminosa, Removiste la piedra, Saturno Milanillos y Despliegue de lo real." />
+  <meta name="author" content="Samuel Martínez Andrade" />
+  <meta property="og:title" content="Samuel Martínez Andrade" />
+  <meta property="og:description" content="Escritor y poeta mexicano. Cuatro libros publicados. Publica Cuadernos del Ser en Substack." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0e0c0a;
+      --bg-2: #161410;
+      --bg-3: #1e1b17;
+      --text: #e8e0d4;
+      --text-muted: #9a8f82;
+      --text-dim: #5a524a;
+      --accent: #c9893a;
+      --accent-soft: #c9893a22;
+      --accent-line: #c9893a55;
+      --border: #2a261f;
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'Raleway', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.75;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NOISE TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── NAV ── */
+    nav {
+      padding: 2rem 0 1.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 7rem 0 5rem;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 5rem;
+      width: 0.5px;
+      height: 60%;
+      background: linear-gradient(to bottom, transparent, var(--accent-line), transparent);
+    }
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 0.5px;
+      background: var(--accent);
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 0.15em;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+    .hero-actions {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-primary {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.8rem 2rem;
+      border: 0.5px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .btn-ghost {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--text); }
+    .btn-ghost::after { content: ' →'; }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+    .divider-line {
+      flex: 1;
+      height: 0.5px;
+      background: var(--border);
+    }
+
+    /* ── BIO ── */
+    .bio-section {
+      padding: 5rem 0;
+      border-top: 0.5px solid var(--border);
+    }
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .bio-aside {
+      position: sticky;
+      top: 2rem;
+    }
+    .bio-aside-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+    .bio-aside-year {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--bg-3);
+      line-height: 1;
+      -webkit-text-stroke: 0.5px var(--border);
+    }
+    .bio-text p {
+      margin-bottom: 1.25rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+    .bio-text p:last-child { margin-bottom: 0; }
+    .bio-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── LIBROS ── */
+    .libros-section {
+      padding: 5rem 0;
+      border-top: 0.5px solid var(--border);
+    }
+    .libros-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2px;
+      margin-top: 0.5rem;
+    }
+    .libro-card {
+      background: var(--bg-2);
+      padding: 2rem 1.5rem;
+      position: relative;
+      transition: background 0.25s;
+      cursor: pointer;
+      border: 0.5px solid transparent;
+      display: block;
+    }
+    .libro-card:hover {
+      background: var(--bg-3);
+      border-color: var(--accent-line);
+    }
+    .libro-card:hover .libro-title { color: var(--accent); }
+    .libro-year {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+    }
+    .libro-num {
+      font-family: var(--serif);
+      font-size: 4rem;
+      font-weight: 400;
+      color: var(--bg-3);
+      line-height: 1;
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      -webkit-text-stroke: 0.5px var(--border);
+      transition: color 0.25s;
+    }
+    .libro-card:hover .libro-num {
+      color: var(--accent-soft);
+      -webkit-text-stroke: 0.5px var(--accent-line);
+    }
+    .libro-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+      transition: color 0.25s;
+    }
+    .libro-editorial {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+    .libro-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border: 0.5px solid var(--border);
+      color: var(--text-dim);
+    }
+    .libro-card:hover .libro-tag {
+      border-color: var(--accent-line);
+      color: var(--accent);
+    }
+
+    /* ── TEXTOS ── */
+    .textos-section {
+      padding: 5rem 0;
+      border-top: 0.5px solid var(--border);
+    }
+    .textos-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .texto-item {
+      display: grid;
+      grid-template-columns: 5rem 1fr auto;
+      gap: 1.5rem;
+      align-items: baseline;
+      padding: 1.25rem 0;
+      border-bottom: 0.5px solid var(--border);
+      transition: background 0.2s;
+    }
+    .texto-item:first-child { border-top: 0.5px solid var(--border); }
+    .texto-year-col {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+    .texto-title-col a {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .texto-item:hover .texto-title-col a { color: var(--text); }
+    .texto-pub-col {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      text-align: right;
+    }
+
+    /* ── CUADERNOS ── */
+    .cuadernos-section {
+      padding: 5rem 0;
+      border-top: 0.5px solid var(--border);
+    }
+    .cuadernos-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .cuadernos-kicker {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .cuadernos-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .cuadernos-desc {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .cuadernos-visual {
+      background: var(--bg-2);
+      border: 0.5px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cuadernos-visual::before {
+      content: '꩜';
+      position: absolute;
+      font-size: 10rem;
+      color: var(--accent-soft);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 1;
+    }
+    .cuadernos-visual-text {
+      position: relative;
+      z-index: 1;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .cuadernos-visual-text em {
+      display: block;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 0;
+      border-top: 0.5px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-name {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow  { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
+    .hero-name     { animation: fadeUp 0.6s ease both; animation-delay: 0.2s; }
+    .hero-tagline  { animation: fadeUp 0.6s ease both; animation-delay: 0.35s; }
+    .hero-actions  { animation: fadeUp 0.6s ease both; animation-delay: 0.5s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .bio-aside { position: static; }
+      .cuadernos-inner { grid-template-columns: 1fr; }
+      .texto-item { grid-template-columns: 3.5rem 1fr; }
+      .texto-pub-col { display: none; }
+      nav .container { flex-direction: column; gap: 1rem; }
+      .nav-links { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <span class="nav-name">Samuel Martínez Andrade</span>
+      <ul class="nav-links">
+        <li><a href="#obra">Obra</a></li>
+        <li><a href="#textos">Textos</a></li>
+        <li><a href="#cuadernos">Cuadernos</a></li>
+        <li><a href="mailto:samuel@kacti.ai">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Querétaro, México</p>
+      <h1 class="hero-name">Samuel<br>Martínez<br><em>Andrade</em></h1>
+      <p class="hero-tagline">Escritura en la frontera entre el cuerpo, el tiempo y lo sagrado.</p>
+      <div class="hero-actions">
+        <a href="#obra" class="btn-primary">Ver obra</a>
+        <a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener" class="btn-ghost">Leer Cuadernos del Ser</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO -->
+  <section class="bio-section" id="bio">
+    <div class="container">
+      <div class="section-divider">
+        <span class="section-label">Acerca del autor</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="bio-grid">
+        <div class="bio-aside">
+          <p class="bio-aside-label">Desde</p>
+          <p class="bio-aside-year">2015</p>
+        </div>
+        <div class="bio-text">
+          <p>
+            <strong>Samuel Martínez Andrade</strong> es escritor y poeta mexicano.
+            Su obra trabaja en la frontera entre el cuerpo, el tiempo y lo sagrado,
+            con una voz formada en la filosofía, la Teoría Crítica y la tradición
+            literaria latinoamericana.
+          </p>
+          <p>
+            Ha publicado cuatro libros: <strong><em>Despliegue de lo real</em></strong> (Niño Down, 2016),
+            <strong><em>Saturno Milanillos</em></strong> (Broken English, 2018),
+            <strong><em>Removiste la piedra</em></strong> (Herring Publishers, 2020)
+            y <strong><em>Y la luna lucía luminosa</em></strong> (Herring Publishers, 2024).
+            Sus textos han aparecido en <em>Tierra Adentro</em>, <em>Punto en Línea</em> (UNAM),
+            <em>Opción ITAM</em> y otras publicaciones.
+          </p>
+          <p>
+            Publica <strong>Cuadernos del Ser</strong>, una bitácora de escritura y pensamiento
+            en Substack.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBROS -->
+  <section class="libros-section" id="obra">
+    <div class="container">
+      <div class="section-divider">
+        <span class="section-label">Libros</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="libros-grid">
+
+        <a class="libro-card" href="https://articulo.mercadolibre.com.mx/MLM-3520143596" target="_blank" rel="noopener">
+          <span class="libro-num">IV</span>
+          <p class="libro-year">2024</p>
+          <h2 class="libro-title">Y la luna lucía luminosa</h2>
+          <p class="libro-editorial">Herring Publishers</p>
+          <span class="libro-tag">Novela</span>
+        </a>
+
+        <a class="libro-card" href="https://1drv.ms/b/c/6b5b9a6460c111a8/EagRwWBkmlsggGtERwAAAAABd26M01V5DRtm58r-jkwNsw?e=w0vpUu" target="_blank" rel="noopener">
+          <span class="libro-num">III</span>
+          <p class="libro-year">2020</p>
+          <h2 class="libro-title">Removiste la piedra</h2>
+          <p class="libro-editorial">Herring Publishers</p>
+          <span class="libro-tag">Poesía</span>
+        </a>
+
+        <a class="libro-card" href="https://brokenenglish.lol/saturno" target="_blank" rel="noopener">
+          <span class="libro-num">II</span>
+          <p class="libro-year">2018</p>
+          <h2 class="libro-title">Saturno Milanillos</h2>
+          <p class="libro-editorial">Broken English</p>
+          <span class="libro-tag">Poesía</span>
+        </a>
+
+        <a class="libro-card" href="https://downdigital.tumblr.com/despliegue" target="_blank" rel="noopener">
+          <span class="libro-num">I</span>
+          <p class="libro-year">2016</p>
+          <h2 class="libro-title">Despliegue de lo real</h2>
+          <p class="libro-editorial">Niño Down</p>
+          <span class="libro-tag">Poesía</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEXTOS -->
+  <section class="textos-section" id="textos">
+    <div class="container">
+      <div class="section-divider">
+        <span class="section-label">Textos y poemas</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="textos-list">
+
+        <div class="texto-item">
+          <span class="texto-year-col">2025</span>
+          <span class="texto-title-col"><a href="https://medium.com/@sammtza/-17c9dd27faf9" target="_blank" rel="noopener">???;) — Pregunta pregunta pregunta guiño</a></span>
+          <span class="texto-pub-col">Medium</span>
+        </div>
+
+        <div class="texto-item">
+          <span class="texto-year-col">2019</span>
+          <span class="texto-title-col"><a href="https://medium.com/@sammtza/la-fantasía-mesiánica-con-tintes-utópicos-el-último-refugio-para-mantener-la-persistencia-y-la-7d82ac91b85b" target="_blank" rel="noopener">Ensayo sobre la imaginación vívida</a></span>
+          <span class="texto-pub-col">Medium</span>
+        </div>
+
+        <div class="texto-item">
+          <span class="texto-year-col">2017</span>
+          <span class="texto-title-col"><a href="https://tierraadentro.fondodeculturaeconomica.com/se-necesitan-tres-cosas-para-vivir/" target="_blank" rel="noopener">Se necesitan tres cosas para vivir</a></span>
+          <span class="texto-pub-col">Tierra Adentro</span>
+        </div>
+
+        <div class="texto-item">
+          <span class="texto-year-col">2017</span>
+          <span class="texto-title-col"><a href="https://medium.com/@sammtza/luna-en-el-estudio-806fd8f222cd" target="_blank" rel="noopener">Luna en el estudio</a></span>
+          <span class="texto-pub-col">Medium</span>
+        </div>
+
+        <div class="texto-item">
+          <span class="texto-year-col">2017</span>
+          <span class="texto-title-col"><a href="https://medium.com/@sammtza/golosinas-c5e45f9ab6d7" target="_blank" rel="noopener">Golosinas</a></span>
+          <span class="texto-pub-col">Medium</span>
+        </div>
+
+        <div class="texto-item">
+          <span class="texto-year-col">2016</span>
+          <span class="texto-title-col"><a href="https://medium.com/@sammtza/cactáceas-6b75edc086f9" target="_blank" rel="noopener">Cactáceas</a></span>
+          <span class="texto-pub-col">Despliegue de lo real</span>
+        </div>
+
+        <div class="texto-item">
+          <span class="texto-year-col">2016</span>
+          <span class="texto-title-col"><a href="https://puntoenlinea.unam.mx/?view=article&id=1093" target="_blank" rel="noopener">Demente</a></span>
+          <span class="texto-pub-col">Punto en Línea · UNAM</span>
+        </div>
+
+        <div class="texto-item">
+          <span class="texto-year-col">2015</span>
+          <span class="texto-title-col"><a href="https://opcion.itam.mx/?p=1023" target="_blank" rel="noopener">Máfrico Améxica</a></span>
+          <span class="texto-pub-col">Opción ITAM</span>
+        </div>
+
+        <div class="texto-item">
+          <span class="texto-year-col">2015</span>
+          <span class="texto-title-col"><a href="https://digopalabratxt.com/2015/06/23/bufo-alvarius-por-samuel-martinez-andrade/" target="_blank" rel="noopener">Bufo Alvarius</a></span>
+          <span class="texto-pub-col">DigoPalabra.txt</span>
+        </div>
+
+        <div class="texto-item">
+          <span class="texto-year-col">2015</span>
+          <span class="texto-title-col"><a href="https://www.revistaelhumo.com/2015/10/samuel-martinez_21.html" target="_blank" rel="noopener">Pared Blanca</a></span>
+          <span class="texto-pub-col">Revista El Humo</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CUADERNOS DEL SER -->
+  <section class="cuadernos-section" id="cuadernos">
+    <div class="container">
+      <div class="section-divider">
+        <span class="section-label">Publicación</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="cuadernos-inner">
+        <div>
+          <p class="cuadernos-kicker">Substack · desde 2024</p>
+          <h2 class="cuadernos-title">Cuadernos del Ser</h2>
+          <p class="cuadernos-desc">
+            Bitácora de respiración y aliento ante relámpagos petrificados.
+            Escritura en proceso, reflexiones sobre el lenguaje, el tiempo y
+            las formas de habitar el mundo.
+          </p>
+          <a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener" class="btn-primary">Suscribirse</a>
+        </div>
+        <div class="cuadernos-visual">
+          <p class="cuadernos-visual-text">
+            "Bitácora de respiración y aliento<br>ante relámpagos petrificados."
+            <em>— Cuadernos del Ser</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Samuel Martínez Andrade</span>
+        <ul class="footer-links">
+          <li><a href="https://instagram.com/sammtza" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="https://medium.com/@sammtza" target="_blank" rel="noopener">Medium</a></li>
+          <li><a href="mailto:samuel@kacti.ai">Correo</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
