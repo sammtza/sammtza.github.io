@@ -146,6 +146,7 @@
         <li><a href="#poetica">Poética</a></li>
         <li><a href="#obra">Obra</a></li>
         <li><a href="#textos">Textos</a></li>
+        <li><a href="#prensa">Prensa</a></li>
         <li><a href="#cuadernos">Cuadernos</a></li>
         <li><a href="mailto:sammtza93@gmail.com">Contacto</a></li>
       </ul>
@@ -364,6 +365,41 @@
     </div>
   </section>
 
+  <section class="textos-section" id="prensa">
+    <div class="container">
+      <div class="section-divider">
+        <span class="section-label">Prensa y entrevistas</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="textos-list">
+        <a class="texto-item" href="https://periodicopoetico.wordpress.com/2025/04/28/entrevista-de-ana-laura-bravo-con-samuel-martinez-andrade-sobre-su-libro-y-la-luna-lucia-luminosa/" target="_blank" rel="noopener">
+          <span class="texto-year-col">2025</span>
+          <span class="texto-title-col">Entrevista sobre <em>Y la luna lucía luminosa</em></span>
+          <span class="texto-pub-col">Periódico Poético</span>
+          <span class="texto-arrow">→</span>
+        </a>
+        <a class="texto-item" href="https://periodicopoetico.wordpress.com/2025/04/20/de-poetas-y-nigromantes-resena-literaria-de-ana-laura-bravo/" target="_blank" rel="noopener">
+          <span class="texto-year-col">2025</span>
+          <span class="texto-title-col">Reseña de <em>Y la luna lucía luminosa</em></span>
+          <span class="texto-pub-col">Periódico Poético</span>
+          <span class="texto-arrow">→</span>
+        </a>
+        <a class="texto-item" href="https://www.youtube.com/watch?v=kXocKhD-nOA" target="_blank" rel="noopener">
+          <span class="texto-year-col">2025</span>
+          <span class="texto-title-col">Reseña de <em>Y la luna lucía luminosa</em></span>
+          <span class="texto-pub-col">UAQ</span>
+          <span class="texto-arrow">→</span>
+        </a>
+        <a class="texto-item" href="https://lospoliticosveracruz.com.mx/?p=25108" target="_blank" rel="noopener">
+          <span class="texto-year-col">2025</span>
+          <span class="texto-title-col">Reseña de <em>Y la luna lucía luminosa</em></span>
+          <span class="texto-pub-col">Los Políticos Veracruz</span>
+          <span class="texto-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="cuadernos-section" id="cuadernos">
     <div class="container">
       <div class="section-divider">
@@ -391,39 +427,3 @@
       <div class="footer-inner">
         <span class="footer-name">Samuel Martínez Andrade</span>
         <ul class="footer-links">
-          <li><a href="https://instagram.com/sammtza" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener">Substack</a></li>
-          <li><a href="https://medium.com/@sammtza" target="_blank" rel="noopener">Medium</a></li>
-          <li><a href="mailto:sammtza93@gmail.com">Correo</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    async function loadSubstack() {
-      const feed = document.getElementById('substack-feed');
-      const fallback = '<a class="substack-post" href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener"><p class="substack-post-title">Ver todas las entradas en Substack →</p></a>';
-      try {
-        const url = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fcuadernosdelser.substack.com%2Ffeed&count=3&api_key=';
-        const res = await fetch(url, { signal: AbortSignal.timeout(6000) });
-        if (!res.ok) throw new Error('fetch');
-        const data = await res.json();
-        if (!data.items || !data.items.length) throw new Error('empty');
-        feed.innerHTML = data.items.map(item => {
-          const d = new Date(item.pubDate);
-          const date = d.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
-          return '<a class="substack-post" href="' + item.link + '" target="_blank" rel="noopener">'
-            + '<p class="substack-post-date">' + date + '</p>'
-            + '<p class="substack-post-title">' + item.title + '</p>'
-            + '</a>';
-        }).join('');
-      } catch(e) {
-        feed.innerHTML = fallback;
-      }
-    }
-    loadSubstack();
-  </script>
-
-</body>
-</html>
