@@ -29,7 +29,6 @@
     body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
     .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
 
-    /* NAV */
     nav { padding: 2rem 0 1.5rem; border-bottom: 0.5px solid var(--border); }
     nav .container { display: flex; justify-content: space-between; align-items: baseline; }
     .nav-name { font-family: var(--serif); font-size: 1rem; font-weight: 400; letter-spacing: 0.05em; color: var(--text-muted); font-style: italic; }
@@ -37,7 +36,6 @@
     .nav-links a { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
     .hero { padding: 7rem 0 5rem; position: relative; }
     .hero::after { content: ''; position: absolute; left: -2rem; top: 5rem; width: 0.5px; height: 60%; background: linear-gradient(to bottom, transparent, var(--accent-line), transparent); }
     .hero-eyebrow { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
@@ -51,12 +49,10 @@
     .btn-ghost:hover { color: var(--text); }
     .btn-ghost::after { content: ' →'; }
 
-    /* DIVIDER */
     .section-divider { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem; }
     .section-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
     .divider-line { flex: 1; height: 0.5px; background: var(--border); }
 
-    /* POÉTICA */
     .poetica-section { padding: 6rem 0; border-top: 0.5px solid var(--border); }
     .poetica-versos { list-style: none; display: flex; flex-direction: column; gap: 0; margin-bottom: 3rem; }
     .poetica-verso { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 1.9rem); font-style: italic; color: var(--text-dim); line-height: 1.5; padding: 0.85rem 0; border-bottom: 0.5px solid var(--border); transition: color 0.3s, padding-left 0.3s; cursor: default; }
@@ -65,7 +61,6 @@
     .poetica-verso strong { font-weight: 400; color: var(--accent); font-style: normal; }
     .poetica-nota { font-family: var(--serif); font-size: 1.1rem; color: var(--text-muted); font-style: italic; line-height: 1.85; max-width: 640px; }
 
-    /* BIO */
     .bio-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
     .bio-grid { display: grid; grid-template-columns: 220px 1fr; gap: 4rem; align-items: start; }
     .bio-aside { position: sticky; top: 2rem; }
@@ -75,7 +70,6 @@
     .bio-text p:last-child { margin-bottom: 0; }
     .bio-text strong { color: var(--text); font-weight: 500; }
 
-    /* LIBROS */
     .libros-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
     .libros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3px; }
     .libro-card { background: var(--bg-2); padding: 2.5rem 2rem; position: relative; transition: background 0.25s, transform 0.25s; cursor: pointer; border: 0.5px solid var(--border); display: block; min-height: 200px; }
@@ -91,37 +85,33 @@
     .libro-tag { display: inline-block; margin-top: 1.25rem; font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 0.5px solid var(--border); color: var(--text-dim); transition: border-color 0.25s, color 0.25s; }
     .libro-tag-inedito { display: inline-block; margin-top: 1.25rem; font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 0.5px dashed var(--text-dim); color: var(--text-dim); font-style: italic; }
 
-    /* TEXTOS */
     .textos-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
     .textos-list { display: flex; flex-direction: column; }
-    .texto-item { display: grid; grid-template-columns: 5rem 1fr auto; gap: 1.5rem; align-items: center; padding: 1.5rem 1rem; border-bottom: 0.5px solid var(--border); transition: background 0.2s, padding-left 0.2s; border-radius: 0; }
+    .texto-item { display: grid; grid-template-columns: 5rem 1fr auto 1.5rem; gap: 1rem; align-items: center; padding: 1.4rem 1.25rem; border-bottom: 0.5px solid var(--border); transition: background 0.2s, padding-left 0.25s; }
     .texto-item:first-child { border-top: 0.5px solid var(--border); }
-    .texto-item:hover { background: var(--bg-2); padding-left: 1.75rem; }
-    .texto-item:hover .texto-title-col a { color: var(--accent); }
+    .texto-item:hover { background: var(--bg-2); padding-left: 2rem; }
+    .texto-year-col { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.2s; }
     .texto-item:hover .texto-year-col { color: var(--text-muted); }
-    .texto-item:hover .texto-pub-col { color: var(--text-muted); }
-    .texto-year-col { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.2s; }
-    .texto-title-col a { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--text-muted); transition: color 0.2s; }
-    .texto-arrow { font-size: 0.8rem; color: var(--text-dim); opacity: 0; transition: opacity 0.2s, color 0.2s; }
+    .texto-title-col a { font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: var(--text-muted); transition: color 0.2s; display: block; }
+    .texto-item:hover .texto-title-col a { color: var(--text); }
+    .texto-pub-col { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--text-dim); text-align: right; transition: color 0.2s; white-space: nowrap; }
+    .texto-item:hover .texto-pub-col { color: var(--accent); }
+    .texto-arrow { font-size: 0.9rem; color: var(--text-dim); opacity: 0; transition: opacity 0.2s, color 0.2s; text-align: right; }
     .texto-item:hover .texto-arrow { opacity: 1; color: var(--accent); }
-    .texto-pub-col { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-dim); text-align: right; transition: color 0.2s; }
 
-    /* CUADERNOS */
     .cuadernos-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
     .cuadernos-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .cuadernos-kicker { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .cuadernos-title { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; font-style: italic; color: var(--text); line-height: 1.2; margin-bottom: 1.25rem; }
     .cuadernos-desc { font-family: var(--serif); font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; }
-    .substack-feed { display: flex; flex-direction: column; gap: 0; }
+    .substack-feed { display: flex; flex-direction: column; gap: 2px; }
     .substack-post { padding: 1.5rem; background: var(--bg-2); border: 0.5px solid var(--border); transition: border-color 0.2s, background 0.2s; display: block; }
     .substack-post:hover { border-color: var(--accent-line); background: var(--bg-3); }
-    .substack-post-date { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.5rem; }
-    .substack-post-title { font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.5rem; transition: color 0.2s; }
+    .substack-post-date { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.4rem; }
+    .substack-post-title { font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--text-muted); line-height: 1.4; transition: color 0.2s; }
     .substack-post:hover .substack-post-title { color: var(--text); }
-    .substack-post-desc { font-family: var(--serif); font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
-    .substack-loading { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--text-dim); padding: 1.5rem; }
+    .substack-loading { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--text-dim); padding: 1rem 0; }
 
-    /* FOOTER */
     footer { padding: 3rem 0; border-top: 0.5px solid var(--border); }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
     .footer-name { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--text-dim); }
@@ -129,21 +119,19 @@
     .footer-links a { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
 
-    /* ANIMATIONS */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
     .hero-eyebrow { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
     .hero-name { animation: fadeUp 0.6s ease both; animation-delay: 0.2s; }
     .hero-tagline { animation: fadeUp 0.6s ease both; animation-delay: 0.35s; }
     .hero-actions { animation: fadeUp 0.6s ease both; animation-delay: 0.5s; }
 
-    /* RESPONSIVE */
     @media (max-width: 640px) {
       .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
       .bio-aside { position: static; display: flex; gap: 1.5rem; align-items: flex-start; }
       .bio-photo { width: 120px; flex-shrink: 0; }
       .cuadernos-inner { grid-template-columns: 1fr; }
-      .texto-item { grid-template-columns: 3.5rem 1fr auto; }
-      .texto-pub-col { display: none; }
+      .texto-item { grid-template-columns: 3.5rem 1fr; }
+      .texto-pub-col, .texto-arrow { display: none; }
       nav .container { flex-direction: column; gap: 1rem; }
       .nav-links { gap: 1.25rem; }
     }
@@ -159,7 +147,7 @@
         <li><a href="#obra">Obra</a></li>
         <li><a href="#textos">Textos</a></li>
         <li><a href="#cuadernos">Cuadernos</a></li>
-        <li><a href="mailto:sammtza@gmail.com">Contacto</a></li>
+        <li><a href="mailto:sammtza93@gmail.com">Contacto</a></li>
       </ul>
     </div>
   </nav>
@@ -243,7 +231,6 @@
         <div class="divider-line"></div>
       </div>
       <div class="libros-grid">
-
         <a class="libro-card" href="https://medium.com/@sammtza/-17c9dd27faf9" target="_blank" rel="noopener">
           <span class="libro-num">VI</span>
           <p class="libro-year">2025</p>
@@ -251,15 +238,13 @@
           <p class="libro-editorial">Taller de las flores raras<br>Luis Osorno</p>
           <span class="libro-tag">Poesía</span>
         </a>
-
-        <a class="libro-card" href="#" style="pointer-events:none;">
+        <div class="libro-card" style="cursor:default;">
           <span class="libro-num">V</span>
           <p class="libro-year">2025</p>
           <h2 class="libro-title">Sentémonos en la tierra</h2>
           <p class="libro-editorial">Taller de las flores raras<br>Luis Osorno</p>
           <span class="libro-tag">Poesía</span>
-        </a>
-
+        </div>
         <a class="libro-card" href="https://articulo.mercadolibre.com.mx/MLM-3520143596" target="_blank" rel="noopener">
           <span class="libro-num">IV</span>
           <p class="libro-year">2024</p>
@@ -267,7 +252,6 @@
           <p class="libro-editorial">Herring Publishers</p>
           <span class="libro-tag">Novela</span>
         </a>
-
         <a class="libro-card" href="https://1drv.ms/b/c/6b5b9a6460c111a8/EagRwWBkmlsggGtERwAAAAABd26M01V5DRtm58r-jkwNsw?e=w0vpUu" target="_blank" rel="noopener">
           <span class="libro-num">III</span>
           <p class="libro-year">2020</p>
@@ -275,7 +259,6 @@
           <p class="libro-editorial">Herring Publishers</p>
           <span class="libro-tag">Poesía</span>
         </a>
-
         <a class="libro-card" href="https://brokenenglish.lol/saturno" target="_blank" rel="noopener">
           <span class="libro-num">II</span>
           <p class="libro-year">2018</p>
@@ -283,7 +266,6 @@
           <p class="libro-editorial">Broken English</p>
           <span class="libro-tag">Poesía</span>
         </a>
-
         <a class="libro-card" href="https://downdigital.tumblr.com/despliegue" target="_blank" rel="noopener">
           <span class="libro-num">I</span>
           <p class="libro-year">2016</p>
@@ -291,7 +273,6 @@
           <p class="libro-editorial">Niño Down</p>
           <span class="libro-tag">Poesía</span>
         </a>
-
       </div>
 
       <div class="section-divider" style="margin-top: 3.5rem;">
@@ -324,60 +305,60 @@
         <div class="divider-line"></div>
       </div>
       <div class="textos-list">
-        <div class="texto-item">
+        <a class="texto-item" href="https://medium.com/@sammtza/la-fantas%C3%ADa-mesi%C3%A1nica-con-tintes-ut%C3%B3picos-el-%C3%BAltimo-refugio-para-mantener-la-persistencia-y-la-7d82ac91b85b" target="_blank" rel="noopener">
           <span class="texto-year-col">2019</span>
-          <span class="texto-title-col"><a href="https://medium.com/@sammtza/la-fantas%C3%ADa-mesi%C3%A1nica-con-tintes-ut%C3%B3picos-el-%C3%BAltimo-refugio-para-mantener-la-persistencia-y-la-7d82ac91b85b" target="_blank" rel="noopener">Ensayo sobre la imaginación vívida</a></span>
+          <span class="texto-title-col">Ensayo sobre la imaginación vívida</span>
           <span class="texto-pub-col">Medium</span>
           <span class="texto-arrow">→</span>
-        </div>
-        <div class="texto-item">
+        </a>
+        <a class="texto-item" href="https://tierraadentro.fondodeculturaeconomica.com/se-necesitan-tres-cosas-para-vivir/" target="_blank" rel="noopener">
           <span class="texto-year-col">2017</span>
-          <span class="texto-title-col"><a href="https://tierraadentro.fondodeculturaeconomica.com/se-necesitan-tres-cosas-para-vivir/" target="_blank" rel="noopener">Se necesitan tres cosas para vivir</a></span>
+          <span class="texto-title-col">Se necesitan tres cosas para vivir</span>
           <span class="texto-pub-col">Tierra Adentro · FCE</span>
           <span class="texto-arrow">→</span>
-        </div>
-        <div class="texto-item">
+        </a>
+        <a class="texto-item" href="https://medium.com/@sammtza/luna-en-el-estudio-806fd8f222cd" target="_blank" rel="noopener">
           <span class="texto-year-col">2017</span>
-          <span class="texto-title-col"><a href="https://medium.com/@sammtza/luna-en-el-estudio-806fd8f222cd" target="_blank" rel="noopener">Luna en el estudio</a></span>
+          <span class="texto-title-col">Luna en el estudio</span>
           <span class="texto-pub-col">Medium</span>
           <span class="texto-arrow">→</span>
-        </div>
-        <div class="texto-item">
+        </a>
+        <a class="texto-item" href="https://medium.com/@sammtza/golosinas-c5e45f9ab6d7" target="_blank" rel="noopener">
           <span class="texto-year-col">2017</span>
-          <span class="texto-title-col"><a href="https://medium.com/@sammtza/golosinas-c5e45f9ab6d7" target="_blank" rel="noopener">Golosinas</a></span>
+          <span class="texto-title-col">Golosinas</span>
           <span class="texto-pub-col">Medium</span>
           <span class="texto-arrow">→</span>
-        </div>
-        <div class="texto-item">
+        </a>
+        <a class="texto-item" href="https://medium.com/@sammtza/cact%C3%A1ceas-6b75edc086f9" target="_blank" rel="noopener">
           <span class="texto-year-col">2016</span>
-          <span class="texto-title-col"><a href="https://medium.com/@sammtza/cact%C3%A1ceas-6b75edc086f9" target="_blank" rel="noopener">Cactáceas</a></span>
+          <span class="texto-title-col">Cactáceas</span>
           <span class="texto-pub-col">Despliegue de lo real</span>
           <span class="texto-arrow">→</span>
-        </div>
-        <div class="texto-item">
+        </a>
+        <a class="texto-item" href="https://puntoenlinea.unam.mx/?view=article&id=1093" target="_blank" rel="noopener">
           <span class="texto-year-col">2016</span>
-          <span class="texto-title-col"><a href="https://puntoenlinea.unam.mx/?view=article&id=1093" target="_blank" rel="noopener">Demente</a></span>
+          <span class="texto-title-col">Demente</span>
           <span class="texto-pub-col">Punto en Línea · UNAM</span>
           <span class="texto-arrow">→</span>
-        </div>
-        <div class="texto-item">
+        </a>
+        <a class="texto-item" href="https://opcion.itam.mx/?p=1023" target="_blank" rel="noopener">
           <span class="texto-year-col">2015</span>
-          <span class="texto-title-col"><a href="https://opcion.itam.mx/?p=1023" target="_blank" rel="noopener">Máfrico Améxica</a></span>
+          <span class="texto-title-col">Máfrico Améxica</span>
           <span class="texto-pub-col">Opción · ITAM</span>
           <span class="texto-arrow">→</span>
-        </div>
-        <div class="texto-item">
+        </a>
+        <a class="texto-item" href="https://digopalabratxt.com/2015/06/23/bufo-alvarius-por-samuel-martinez-andrade/" target="_blank" rel="noopener">
           <span class="texto-year-col">2015</span>
-          <span class="texto-title-col"><a href="https://digopalabratxt.com/2015/06/23/bufo-alvarius-por-samuel-martinez-andrade/" target="_blank" rel="noopener">Bufo Alvarius</a></span>
+          <span class="texto-title-col">Bufo Alvarius</span>
           <span class="texto-pub-col">DigoPalabra.txt</span>
           <span class="texto-arrow">→</span>
-        </div>
-        <div class="texto-item">
+        </a>
+        <a class="texto-item" href="https://www.revistaelhumo.com/2015/10/samuel-martinez_21.html" target="_blank" rel="noopener">
           <span class="texto-year-col">2015</span>
-          <span class="texto-title-col"><a href="https://www.revistaelhumo.com/2015/10/samuel-martinez_21.html" target="_blank" rel="noopener">Pared Blanca</a></span>
+          <span class="texto-title-col">Pared Blanca</span>
           <span class="texto-pub-col">Revista El Humo</span>
           <span class="texto-arrow">→</span>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -392,14 +373,12 @@
         <div>
           <p class="cuadernos-kicker">Substack · desde 2024</p>
           <h2 class="cuadernos-title">Cuadernos del Ser</h2>
-          <p class="cuadernos-desc">
-            Escritura viva, formas de habitar el lenguaje y el mundo desde el afecto y el cuidado.
-          </p>
+          <p class="cuadernos-desc">Escritura viva, formas de habitar el lenguaje y el mundo desde el afecto y el cuidado.</p>
           <a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener" class="btn-primary">Suscribirse</a>
         </div>
         <div>
           <div id="substack-feed" class="substack-feed">
-            <p class="substack-loading">Cargando entradas recientes…</p>
+            <p class="substack-loading">Cargando entradas…</p>
           </div>
         </div>
       </div>
@@ -414,7 +393,7 @@
           <li><a href="https://instagram.com/sammtza" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener">Substack</a></li>
           <li><a href="https://medium.com/@sammtza" target="_blank" rel="noopener">Medium</a></li>
-          <li><a href="mailto:sammtza@gmail.com">Correo</a></li>
+          <li><a href="mailto:sammtza93@gmail.com">Correo</a></li>
         </ul>
       </div>
     </div>
@@ -423,26 +402,23 @@
   <script>
     async function loadSubstack() {
       const feed = document.getElementById('substack-feed');
+      const fallback = '<a class="substack-post" href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener"><p class="substack-post-title">Ver todas las entradas en Substack →</p></a>';
       try {
-        const rss = 'https://cuadernosdelser.substack.com/feed';
-        const api = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rss) + '&count=3';
-        const res = await fetch(api);
+        const url = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fcuadernosdelser.substack.com%2Ffeed&count=3&api_key=';
+        const res = await fetch(url, { signal: AbortSignal.timeout(6000) });
+        if (!res.ok) throw new Error('fetch');
         const data = await res.json();
-        if (!data.items || data.items.length === 0) throw new Error('empty');
-        feed.innerHTML = '';
-        data.items.forEach(item => {
-          const date = new Date(item.pubDate).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
-          const desc = item.description ? item.description.replace(/<[^>]+>/g, '').slice(0, 120) + '…' : '';
-          const el = document.createElement('a');
-          el.className = 'substack-post';
-          el.href = item.link;
-          el.target = '_blank';
-          el.rel = 'noopener';
-          el.innerHTML = '<p class="substack-post-date">' + date + '</p><p class="substack-post-title">' + item.title + '</p><p class="substack-post-desc">' + desc + '</p>';
-          feed.appendChild(el);
-        });
+        if (!data.items || !data.items.length) throw new Error('empty');
+        feed.innerHTML = data.items.map(item => {
+          const d = new Date(item.pubDate);
+          const date = d.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+          return '<a class="substack-post" href="' + item.link + '" target="_blank" rel="noopener">'
+            + '<p class="substack-post-date">' + date + '</p>'
+            + '<p class="substack-post-title">' + item.title + '</p>'
+            + '</a>';
+        }).join('');
       } catch(e) {
-        feed.innerHTML = '<a class="substack-post" href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener"><p class="substack-post-title">Leer Cuadernos del Ser</p><p class="substack-post-desc">Bitácora de escritura viva en Substack.</p></a>';
+        feed.innerHTML = fallback;
       }
     }
     loadSubstack();
