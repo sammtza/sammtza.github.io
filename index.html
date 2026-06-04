@@ -43,8 +43,7 @@
     .hero-eyebrow { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
     .hero-eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 0.5px; background: var(--accent); }
     .hero-name { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.01em; color: var(--text); }
-    .hero-name em { font-style: italic; color: var(--accent); }
-    .hero-tagline { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-style: italic; color: var(--text-muted); margin-top: 1.5rem; max-width: 520px; line-height: 1.6; }
+    .hero-tagline { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-style: italic; color: var(--text-muted); margin-top: 1.5rem; max-width: 560px; line-height: 1.6; }
     .hero-actions { margin-top: 3rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
     .btn-primary { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.8rem 2rem; border: 0.5px solid var(--accent); color: var(--accent); background: transparent; transition: background 0.2s, color 0.2s; cursor: pointer; display: inline-block; }
     .btn-primary:hover { background: var(--accent); color: var(--bg); }
@@ -59,16 +58,12 @@
 
     /* POÉTICA */
     .poetica-section { padding: 6rem 0; border-top: 0.5px solid var(--border); }
-    .poetica-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
-    .poetica-aside { padding-top: 0.5rem; }
-    .poetica-aside-label { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; }
-    .poetica-aside-line { width: 0.5px; height: 4rem; background: linear-gradient(to bottom, var(--accent), transparent); }
-    .poetica-versos { list-style: none; display: flex; flex-direction: column; gap: 0; }
-    .poetica-verso { font-family: var(--serif); font-size: clamp(1.1rem, 2.2vw, 1.35rem); font-style: italic; color: var(--text-dim); line-height: 1.5; padding: 0.6rem 0; border-bottom: 0.5px solid var(--border); transition: color 0.3s, padding-left 0.3s; cursor: default; }
+    .poetica-versos { list-style: none; display: flex; flex-direction: column; gap: 0; margin-bottom: 3rem; }
+    .poetica-verso { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 1.9rem); font-style: italic; color: var(--text-dim); line-height: 1.5; padding: 0.85rem 0; border-bottom: 0.5px solid var(--border); transition: color 0.3s, padding-left 0.3s; cursor: default; }
     .poetica-verso:first-child { border-top: 0.5px solid var(--border); }
-    .poetica-verso:hover { color: var(--text); padding-left: 1rem; }
+    .poetica-verso:hover { color: var(--text); padding-left: 1.25rem; }
     .poetica-verso strong { font-weight: 400; color: var(--accent); font-style: normal; }
-    .poetica-nota { margin-top: 2.5rem; font-family: var(--serif); font-size: 0.9rem; color: var(--text-dim); font-style: italic; line-height: 1.7; max-width: 420px; }
+    .poetica-nota { font-family: var(--serif); font-size: 1.1rem; color: var(--text-muted); font-style: italic; line-height: 1.85; max-width: 640px; }
 
     /* BIO */
     .bio-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
@@ -82,40 +77,49 @@
 
     /* LIBROS */
     .libros-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
-    .libros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2px; }
-    .libro-card { background: var(--bg-2); padding: 2rem 1.5rem; position: relative; transition: background 0.25s; cursor: pointer; border: 0.5px solid transparent; display: block; }
-    .libro-card:hover { background: var(--bg-3); border-color: var(--accent-line); }
+    .libros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3px; }
+    .libro-card { background: var(--bg-2); padding: 2.5rem 2rem; position: relative; transition: background 0.25s, transform 0.25s; cursor: pointer; border: 0.5px solid var(--border); display: block; min-height: 200px; }
+    .libro-card:hover { background: var(--bg-3); border-color: var(--accent); transform: translateY(-3px); }
     .libro-card:hover .libro-title { color: var(--accent); }
-    .libro-card.inedito { opacity: 0.55; cursor: default; pointer-events: none; }
-    .libro-year { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-dim); margin-bottom: 1.25rem; }
-    .libro-num { font-family: var(--serif); font-size: 4rem; font-weight: 400; color: var(--bg-3); line-height: 1; position: absolute; top: 1.25rem; right: 1.25rem; -webkit-text-stroke: 0.5px var(--border); transition: color 0.25s; }
     .libro-card:hover .libro-num { color: var(--accent-soft); -webkit-text-stroke: 0.5px var(--accent-line); }
-    .libro-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; font-style: italic; color: var(--text); line-height: 1.3; margin-bottom: 0.5rem; transition: color 0.25s; }
-    .libro-editorial { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-dim); line-height: 1.5; }
-    .libro-tag { display: inline-block; margin-top: 1rem; font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.25rem 0.6rem; border: 0.5px solid var(--border); color: var(--text-dim); }
     .libro-card:hover .libro-tag { border-color: var(--accent-line); color: var(--accent); }
-    .libro-tag-inedito { display: inline-block; margin-top: 1rem; font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.25rem 0.6rem; border: 0.5px solid var(--text-dim); color: var(--text-dim); font-style: italic; }
+    .libro-card.inedito { opacity: 0.55; cursor: default; pointer-events: none; border-style: dashed; }
+    .libro-year { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-dim); margin-bottom: 1.5rem; }
+    .libro-num { font-family: var(--serif); font-size: 4.5rem; font-weight: 400; color: var(--bg-3); line-height: 1; position: absolute; top: 1.5rem; right: 1.5rem; -webkit-text-stroke: 0.5px var(--border); transition: color 0.25s; }
+    .libro-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; font-style: italic; color: var(--text); line-height: 1.35; margin-bottom: 0.6rem; transition: color 0.25s; }
+    .libro-editorial { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-dim); line-height: 1.5; }
+    .libro-tag { display: inline-block; margin-top: 1.25rem; font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 0.5px solid var(--border); color: var(--text-dim); transition: border-color 0.25s, color 0.25s; }
+    .libro-tag-inedito { display: inline-block; margin-top: 1.25rem; font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 0.5px dashed var(--text-dim); color: var(--text-dim); font-style: italic; }
 
     /* TEXTOS */
     .textos-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
     .textos-list { display: flex; flex-direction: column; }
-    .texto-item { display: grid; grid-template-columns: 5rem 1fr auto; gap: 1.5rem; align-items: baseline; padding: 1.25rem 0; border-bottom: 0.5px solid var(--border); }
+    .texto-item { display: grid; grid-template-columns: 5rem 1fr auto; gap: 1.5rem; align-items: center; padding: 1.5rem 1rem; border-bottom: 0.5px solid var(--border); transition: background 0.2s, padding-left 0.2s; border-radius: 0; }
     .texto-item:first-child { border-top: 0.5px solid var(--border); }
-    .texto-year-col { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--text-dim); }
-    .texto-title-col a { font-family: var(--serif); font-size: 1rem; font-style: italic; color: var(--text-muted); transition: color 0.2s; }
-    .texto-item:hover .texto-title-col a { color: var(--text); }
-    .texto-pub-col { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-dim); text-align: right; }
+    .texto-item:hover { background: var(--bg-2); padding-left: 1.75rem; }
+    .texto-item:hover .texto-title-col a { color: var(--accent); }
+    .texto-item:hover .texto-year-col { color: var(--text-muted); }
+    .texto-item:hover .texto-pub-col { color: var(--text-muted); }
+    .texto-year-col { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.2s; }
+    .texto-title-col a { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--text-muted); transition: color 0.2s; }
+    .texto-arrow { font-size: 0.8rem; color: var(--text-dim); opacity: 0; transition: opacity 0.2s, color 0.2s; }
+    .texto-item:hover .texto-arrow { opacity: 1; color: var(--accent); }
+    .texto-pub-col { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-dim); text-align: right; transition: color 0.2s; }
 
     /* CUADERNOS */
     .cuadernos-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
-    .cuadernos-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .cuadernos-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .cuadernos-kicker { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .cuadernos-title { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; font-style: italic; color: var(--text); line-height: 1.2; margin-bottom: 1.25rem; }
     .cuadernos-desc { font-family: var(--serif); font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; }
-    .cuadernos-visual { background: var(--bg-2); border: 0.5px solid var(--border); padding: 3rem 2rem; text-align: center; position: relative; overflow: hidden; }
-    .cuadernos-visual::before { content: 'x'; position: absolute; font-size: 10rem; color: var(--accent-soft); top: 50%; left: 50%; transform: translate(-50%, -50%); line-height: 1; }
-    .cuadernos-visual-text { position: relative; z-index: 1; font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--text-dim); line-height: 1.6; }
-    .cuadernos-visual-text em { display: block; color: var(--text-muted); margin-top: 0.75rem; font-size: 0.8rem; }
+    .substack-feed { display: flex; flex-direction: column; gap: 0; }
+    .substack-post { padding: 1.5rem; background: var(--bg-2); border: 0.5px solid var(--border); transition: border-color 0.2s, background 0.2s; display: block; }
+    .substack-post:hover { border-color: var(--accent-line); background: var(--bg-3); }
+    .substack-post-date { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.5rem; }
+    .substack-post-title { font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.5rem; transition: color 0.2s; }
+    .substack-post:hover .substack-post-title { color: var(--text); }
+    .substack-post-desc { font-family: var(--serif); font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+    .substack-loading { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--text-dim); padding: 1.5rem; }
 
     /* FOOTER */
     footer { padding: 3rem 0; border-top: 0.5px solid var(--border); }
@@ -134,13 +138,11 @@
 
     /* RESPONSIVE */
     @media (max-width: 640px) {
-      .poetica-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .poetica-aside { display: none; }
       .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
       .bio-aside { position: static; display: flex; gap: 1.5rem; align-items: flex-start; }
       .bio-photo { width: 120px; flex-shrink: 0; }
       .cuadernos-inner { grid-template-columns: 1fr; }
-      .texto-item { grid-template-columns: 3.5rem 1fr; }
+      .texto-item { grid-template-columns: 3.5rem 1fr auto; }
       .texto-pub-col { display: none; }
       nav .container { flex-direction: column; gap: 1rem; }
       .nav-links { gap: 1.25rem; }
@@ -165,7 +167,7 @@
   <section class="hero">
     <div class="container">
       <p class="hero-eyebrow">Querétaro, México</p>
-      <h1 class="hero-name">Samuel<br>Martínez<br><em>Andrade</em></h1>
+      <h1 class="hero-name">Samuel Martínez Andrade</h1>
       <p class="hero-tagline">Escritura de multiplicidad, de texturas y territorios corporales, donde lo Eterno es el vórtice que habita en tu pecho.</p>
       <div class="hero-actions">
         <a href="#obra" class="btn-primary">Ver obra</a>
@@ -174,36 +176,27 @@
     </div>
   </section>
 
-  <!-- POÉTICA -->
   <section class="poetica-section" id="poetica">
     <div class="container">
       <div class="section-divider">
         <span class="section-label">Poética</span>
         <div class="divider-line"></div>
       </div>
-      <div class="poetica-inner">
-        <div class="poetica-aside">
-          <p class="poetica-aside-label">De<br><em>Las manos son<br>las que ven</em><br>(2020–2025)</p>
-          <div class="poetica-aside-line"></div>
-        </div>
-        <div>
-          <ul class="poetica-versos">
-            <li class="poetica-verso"><strong>Las manos</strong> son las que ven</li>
-            <li class="poetica-verso"><strong>Los ojos</strong> son los que comen</li>
-            <li class="poetica-verso"><strong>La boca</strong> es la que escucha</li>
-            <li class="poetica-verso"><strong>Los oídos</strong> son lo que sienten</li>
-            <li class="poetica-verso"><strong>Las palabras</strong> son las que tocan</li>
-          </ul>
-          <p class="poetica-nota">
-            La escritura como movimiento inmanente. El lenguaje que no nombra sino que toca, en tanto performatividad absoluta del cuerpo; el lenguaje que no describe
-            sino que mancha — signos asignificantes de colores no-diferenciados.
-          </p>
-        </div>
-      </div>
+      <ul class="poetica-versos">
+        <li class="poetica-verso"><strong>Las manos</strong> son las que ven</li>
+        <li class="poetica-verso"><strong>Los ojos</strong> son los que comen</li>
+        <li class="poetica-verso"><strong>La boca</strong> es la que escucha</li>
+        <li class="poetica-verso"><strong>Los oídos</strong> son lo que sienten</li>
+        <li class="poetica-verso"><strong>Las palabras</strong> son las que tocan</li>
+      </ul>
+      <p class="poetica-nota">
+        La escritura como desplazamiento de los sentidos. El cuerpo que percibe
+        al revés. El lenguaje que no nombra sino que toca, que no describe
+        sino que mancha — signos asignificantes de colores no-diferenciados.
+      </p>
     </div>
   </section>
 
-  <!-- BIO -->
   <section class="bio-section" id="bio">
     <div class="container">
       <div class="section-divider">
@@ -218,8 +211,9 @@
         <div class="bio-text">
           <p>
             <strong>Samuel Martínez Andrade</strong> es escritor y poeta mexicano.
-            Su obra explora el cuerpo como territorio de conocimiento cósmico, el lenguaje como
-            umbral y el lenguaje como materia prima de la experiencia.
+            Su obra explora el cuerpo como territorio de conocimiento, la escritura
+            como umbral y la experiencia como materia prima de lo sagrado — sin religión,
+            sin metáfora fácil.
           </p>
           <p>
             Ha publicado seis libros: <strong><em>Despliegue de lo real</em></strong> (Niño Down, 2016),
@@ -233,7 +227,8 @@
             y <em>Opción</em> (ITAM), entre otras publicaciones.
           </p>
           <p>
-            Actualmente trabaja en <strong><em>Nuestra Eternidad</em></strong> y <strong><em>Labyrinthos</em></strong>.
+            Actualmente trabaja en <strong><em>Nuestra Eternidad</em></strong>,
+            proyecto postulado al programa Jóvenes Creadores del FONCA 2026.
             Publica <strong>Cuadernos del Ser</strong>, una bitácora de escritura viva en Substack.
           </p>
         </div>
@@ -241,7 +236,6 @@
     </div>
   </section>
 
-  <!-- LIBROS -->
   <section class="libros-section" id="obra">
     <div class="container">
       <div class="section-divider">
@@ -254,15 +248,15 @@
           <span class="libro-num">VI</span>
           <p class="libro-year">2025</p>
           <h2 class="libro-title">???;) — Pregunta pregunta pregunta guiño</h2>
-          <p class="libro-editorial">Taller de las flores raras</p>
+          <p class="libro-editorial">Taller de las flores raras<br>Luis Osorno</p>
           <span class="libro-tag">Poesía</span>
         </a>
 
-        <a class="libro-card" href="#" target="_blank" rel="noopener">
+        <a class="libro-card" href="#" style="pointer-events:none;">
           <span class="libro-num">V</span>
           <p class="libro-year">2025</p>
           <h2 class="libro-title">Sentémonos en la tierra</h2>
-          <p class="libro-editorial">Taller de las flores raras</p>
+          <p class="libro-editorial">Taller de las flores raras<br>Luis Osorno</p>
           <span class="libro-tag">Poesía</span>
         </a>
 
@@ -306,9 +300,16 @@
       </div>
       <div class="libros-grid">
         <div class="libro-card inedito">
-          <span class="libro-num">VII</span>
+          <span class="libro-num">VIII</span>
           <p class="libro-year">2026 —</p>
           <h2 class="libro-title">Nuestra Eternidad</h2>
+          <p class="libro-editorial">Poesía · inédito</p>
+          <span class="libro-tag-inedito">En escritura</span>
+        </div>
+        <div class="libro-card inedito">
+          <span class="libro-num">VII</span>
+          <p class="libro-year">2025 —</p>
+          <h2 class="libro-title">Labyrinthos</h2>
           <p class="libro-editorial">Poesía · inédito</p>
           <span class="libro-tag-inedito">En escritura</span>
         </div>
@@ -316,7 +317,6 @@
     </div>
   </section>
 
-  <!-- TEXTOS -->
   <section class="textos-section" id="textos">
     <div class="container">
       <div class="section-divider">
@@ -328,52 +328,60 @@
           <span class="texto-year-col">2019</span>
           <span class="texto-title-col"><a href="https://medium.com/@sammtza/la-fantas%C3%ADa-mesi%C3%A1nica-con-tintes-ut%C3%B3picos-el-%C3%BAltimo-refugio-para-mantener-la-persistencia-y-la-7d82ac91b85b" target="_blank" rel="noopener">Ensayo sobre la imaginación vívida</a></span>
           <span class="texto-pub-col">Medium</span>
+          <span class="texto-arrow">→</span>
         </div>
         <div class="texto-item">
           <span class="texto-year-col">2017</span>
           <span class="texto-title-col"><a href="https://tierraadentro.fondodeculturaeconomica.com/se-necesitan-tres-cosas-para-vivir/" target="_blank" rel="noopener">Se necesitan tres cosas para vivir</a></span>
           <span class="texto-pub-col">Tierra Adentro · FCE</span>
+          <span class="texto-arrow">→</span>
         </div>
         <div class="texto-item">
           <span class="texto-year-col">2017</span>
           <span class="texto-title-col"><a href="https://medium.com/@sammtza/luna-en-el-estudio-806fd8f222cd" target="_blank" rel="noopener">Luna en el estudio</a></span>
           <span class="texto-pub-col">Medium</span>
+          <span class="texto-arrow">→</span>
         </div>
         <div class="texto-item">
           <span class="texto-year-col">2017</span>
           <span class="texto-title-col"><a href="https://medium.com/@sammtza/golosinas-c5e45f9ab6d7" target="_blank" rel="noopener">Golosinas</a></span>
           <span class="texto-pub-col">Medium</span>
+          <span class="texto-arrow">→</span>
         </div>
         <div class="texto-item">
           <span class="texto-year-col">2016</span>
           <span class="texto-title-col"><a href="https://medium.com/@sammtza/cact%C3%A1ceas-6b75edc086f9" target="_blank" rel="noopener">Cactáceas</a></span>
           <span class="texto-pub-col">Despliegue de lo real</span>
+          <span class="texto-arrow">→</span>
         </div>
         <div class="texto-item">
           <span class="texto-year-col">2016</span>
           <span class="texto-title-col"><a href="https://puntoenlinea.unam.mx/?view=article&id=1093" target="_blank" rel="noopener">Demente</a></span>
           <span class="texto-pub-col">Punto en Línea · UNAM</span>
+          <span class="texto-arrow">→</span>
         </div>
         <div class="texto-item">
           <span class="texto-year-col">2015</span>
           <span class="texto-title-col"><a href="https://opcion.itam.mx/?p=1023" target="_blank" rel="noopener">Máfrico Améxica</a></span>
           <span class="texto-pub-col">Opción · ITAM</span>
+          <span class="texto-arrow">→</span>
         </div>
         <div class="texto-item">
           <span class="texto-year-col">2015</span>
           <span class="texto-title-col"><a href="https://digopalabratxt.com/2015/06/23/bufo-alvarius-por-samuel-martinez-andrade/" target="_blank" rel="noopener">Bufo Alvarius</a></span>
           <span class="texto-pub-col">DigoPalabra.txt</span>
+          <span class="texto-arrow">→</span>
         </div>
         <div class="texto-item">
           <span class="texto-year-col">2015</span>
           <span class="texto-title-col"><a href="https://www.revistaelhumo.com/2015/10/samuel-martinez_21.html" target="_blank" rel="noopener">Pared Blanca</a></span>
           <span class="texto-pub-col">Revista El Humo</span>
+          <span class="texto-arrow">→</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CUADERNOS -->
   <section class="cuadernos-section" id="cuadernos">
     <div class="container">
       <div class="section-divider">
@@ -385,17 +393,14 @@
           <p class="cuadernos-kicker">Substack · desde 2024</p>
           <h2 class="cuadernos-title">Cuadernos del Ser</h2>
           <p class="cuadernos-desc">
-            Bitácora de respiración y aliento ante relámpagos petrificados.
-            Escritura en proceso, pensamiento sin terminar, formas de habitar
-            el lenguaje y el mundo.
+            Escritura viva, formas de habitar el lenguaje y el mundo desde el afecto y el cuidado.
           </p>
           <a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener" class="btn-primary">Suscribirse</a>
         </div>
-        <div class="cuadernos-visual">
-          <p class="cuadernos-visual-text">
-            "Bitácora de respiración y aliento<br>ante relámpagos petrificados."
-            <em>— Cuadernos del Ser</em>
-          </p>
+        <div>
+          <div id="substack-feed" class="substack-feed">
+            <p class="substack-loading">Cargando entradas recientes…</p>
+          </div>
         </div>
       </div>
     </div>
@@ -414,6 +419,34 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    async function loadSubstack() {
+      const feed = document.getElementById('substack-feed');
+      try {
+        const rss = 'https://cuadernosdelser.substack.com/feed';
+        const api = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rss) + '&count=3';
+        const res = await fetch(api);
+        const data = await res.json();
+        if (!data.items || data.items.length === 0) throw new Error('empty');
+        feed.innerHTML = '';
+        data.items.forEach(item => {
+          const date = new Date(item.pubDate).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+          const desc = item.description ? item.description.replace(/<[^>]+>/g, '').slice(0, 120) + '…' : '';
+          const el = document.createElement('a');
+          el.className = 'substack-post';
+          el.href = item.link;
+          el.target = '_blank';
+          el.rel = 'noopener';
+          el.innerHTML = '<p class="substack-post-date">' + date + '</p><p class="substack-post-title">' + item.title + '</p><p class="substack-post-desc">' + desc + '</p>';
+          feed.appendChild(el);
+        });
+      } catch(e) {
+        feed.innerHTML = '<a class="substack-post" href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener"><p class="substack-post-title">Leer Cuadernos del Ser</p><p class="substack-post-desc">Bitácora de escritura viva en Substack.</p></a>';
+      }
+    }
+    loadSubstack();
+  </script>
 
 </body>
 </html>
