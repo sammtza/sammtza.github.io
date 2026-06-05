@@ -128,19 +128,19 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #0e0c0a; --bg-2: #161410; --bg-3: #1e1b17;
-      --text: #e8e0d4; --text-muted: #9a8f82; --text-dim: #5a524a;
+      --text: #e8e0d4; --text-muted: #b8afa5; --text-dim: #7a7068;
       --accent: #c9893a; --accent-soft: #c9893a22; --accent-line: #c9893a55;
       --border: #2a261f;
-      --serif: 'EB Garamond', Georgia, serif;
+      --serif: 'Lora', Georgia, serif;
       --sans: 'Raleway', sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--serif); font-size: 18px; line-height: 1.75; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    body { background: var(--bg); color: var(--text); font-family: var(--serif); font-size: 21px; line-height: 1.9; min-height: 100vh; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     #flow-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
     body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 30% 20%, #1a120800 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, #0a0e1500 0%, transparent 60%); pointer-events: none; z-index: 1; }
@@ -148,9 +148,8 @@
 
     nav { padding: 2rem 0 1.5rem; border-bottom: 0.5px solid var(--border); }
     nav .container { display: flex; justify-content: space-between; align-items: baseline; }
-    .nav-name { font-family: var(--serif); font-size: 1rem; font-weight: 400; letter-spacing: 0.05em; color: var(--text-muted); font-style: italic; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); transition: color 0.2s; }
+    .nav-links a { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
     .hero { padding: 7rem 0 5rem; position: relative; }
@@ -160,14 +159,30 @@
     .hero-name { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.01em; color: var(--text); }
     .hero-tagline { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-style: italic; color: var(--text-muted); margin-top: 1.5rem; max-width: 560px; line-height: 1.6; }
     .hero-actions { margin-top: 3rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
-    .btn-primary { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.8rem 2rem; border: 0.5px solid var(--accent); color: var(--accent); background: transparent; transition: background 0.2s, color 0.2s; cursor: pointer; display: inline-block; }
-    .btn-primary:hover { background: var(--accent); color: var(--bg); }
-    .btn-ghost { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); transition: color 0.2s; }
-    .btn-ghost:hover { color: var(--text); }
-    .btn-ghost::after { content: ' →'; }
+    .btn-primary { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.2rem; border: 0.5px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; display: inline-flex; align-items: center; gap: 0.75rem; position: relative; overflow: hidden; text-decoration: none; animation: pulse-border 3s ease-in-out infinite; }
+    .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--accent); transform: translateX(-101%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); z-index: 0; }
+    .btn-primary:hover::before { transform: translateX(0); }
+    .btn-primary span { position: relative; z-index: 1; transition: color 0.35s; }
+    .btn-primary:hover { color: var(--bg); }
+    .btn-primary:hover span { color: var(--bg); }
+    .btn-ghost { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.2rem; border: 0.5px solid var(--border); color: var(--text-dim); cursor: pointer; display: inline-flex; align-items: center; gap: 0.75rem; position: relative; overflow: hidden; text-decoration: none; }
+    .btn-ghost::before { content: ''; position: absolute; inset: 0; background: var(--text-dim); transform: translateX(-101%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); z-index: 0; }
+    .btn-ghost:hover::before { transform: translateX(0); }
+    .btn-ghost span { position: relative; z-index: 1; transition: color 0.35s; }
+    .btn-ghost:hover { color: var(--bg); border-color: var(--text-dim); }
+    .btn-ghost:hover span { color: var(--bg); }
+    .btn-substack { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.2rem; border: 0.5px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; display: inline-flex; align-items: center; gap: 0.75rem; position: relative; overflow: hidden; text-decoration: none; }
+    .btn-substack::before { content: ''; position: absolute; inset: 0; background: var(--accent); transform: translateX(-101%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); z-index: 0; }
+    .btn-substack:hover::before { transform: translateX(0); }
+    .btn-substack span { position: relative; z-index: 1; transition: color 0.35s; }
+    .btn-substack:hover span { color: var(--bg); }
+    .btn-substack .arrow { display: inline-block; transition: transform 0.35s, color 0.35s; position: relative; z-index: 1; }
+    .btn-substack:hover .arrow { transform: translateX(5px); color: var(--bg); }
+    @keyframes pulse-border { 0%, 100% { border-color: var(--accent); box-shadow: 0 0 0 0 rgba(201,137,58,0); } 50% { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(201,137,58,0.12); } }
+    .btn-substack { animation: pulse-border 3s ease-in-out infinite; }
 
     .section-divider { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem; }
-    .section-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+    .section-label { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); white-space: nowrap; opacity: 0.85; }
     .divider-line { flex: 1; height: 0.5px; background: var(--border); }
 
     .poetica-section { padding: 6rem 0; border-top: 0.5px solid var(--border); }
@@ -176,14 +191,14 @@
     .poetica-verso:first-child { border-top: 0.5px solid var(--border); }
     .poetica-verso:hover { color: var(--text); padding-left: 1.25rem; }
     .poetica-verso strong { font-weight: 400; color: var(--accent); font-style: normal; }
-    .poetica-nota { font-family: var(--serif); font-size: 1.1rem; color: var(--text-muted); font-style: italic; line-height: 1.85; max-width: 640px; }
+    .poetica-nota { font-family: var(--serif); font-size: 1.25rem; color: var(--text-muted); font-style: italic; line-height: 1.9; max-width: 680px; }
 
     .bio-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
     .bio-grid { display: grid; grid-template-columns: 220px 1fr; gap: 4rem; align-items: start; }
     .bio-aside { position: sticky; top: 2rem; }
     .bio-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; filter: grayscale(20%) contrast(1.05); border: 0.5px solid var(--border); display: block; margin-bottom: 1.25rem; }
     .bio-aside-name { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); line-height: 1.6; }
-    .bio-text p { margin-bottom: 1.25rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.85; }
+    .bio-text p { margin-bottom: 1.5rem; color: var(--text-muted); font-size: 1.15rem; line-height: 1.9; }
     .bio-text p:last-child { margin-bottom: 0; }
     .bio-text strong { color: var(--text); font-weight: 500; }
 
@@ -192,13 +207,14 @@
     .libro-card { background: var(--bg-2); padding: 2.5rem 2rem; position: relative; transition: background 0.25s, transform 0.25s; cursor: pointer; border: 0.5px solid var(--border); display: block; min-height: 200px; }
     .libro-card:hover { background: var(--bg-3); border-color: var(--accent); transform: translateY(-3px); }
     .libro-card:hover .libro-title { color: var(--accent); }
-    .libro-card:hover .libro-num { color: var(--accent-soft); -webkit-text-stroke: 0.5px var(--accent-line); }
+    .libro-card:hover .libro-num { color: transparent; -webkit-text-stroke: 1px var(--accent); }
     .libro-card:hover .libro-tag { background: var(--accent); color: var(--bg); border-color: var(--accent); }
-    .libro-card.inedito { opacity: 0.55; cursor: default; pointer-events: none; border-style: dashed; }
+    .libro-card.inedito { opacity: 0.65; cursor: default; pointer-events: none; border-style: dashed; min-height: 220px; padding-top: 3rem; }
     .libro-year { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-dim); margin-bottom: 1.5rem; }
-    .libro-num { font-family: var(--serif); font-size: 4.5rem; font-weight: 400; color: var(--bg-3); line-height: 1; position: absolute; top: 1.5rem; right: 1.5rem; -webkit-text-stroke: 0.5px var(--border); transition: color 0.25s; }
-    .libro-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; font-style: italic; color: var(--text); line-height: 1.35; margin-bottom: 0.6rem; transition: color 0.25s; }
-    .libro-editorial { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-dim); line-height: 1.5; }
+    .libro-num { font-family: var(--serif); font-size: 4.5rem; font-weight: 400; color: transparent; line-height: 1; position: absolute; bottom: 1.25rem; right: 1.25rem; -webkit-text-stroke: 1px #4a4238; transition: color 0.25s, -webkit-text-stroke 0.25s; z-index: 0; }
+    .libro-title, .libro-year, .libro-editorial, .libro-tag, .libro-tag-inedito { position: relative; z-index: 1; }
+    .libro-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; font-style: italic; color: var(--text); line-height: 1.35; margin-bottom: 0.6rem; transition: color 0.25s; }
+    .libro-editorial { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--text-dim); line-height: 1.5; }
     .libro-tag { display: inline-block; margin-top: 1.25rem; font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 0.5px solid var(--accent); color: var(--accent); transition: border-color 0.25s, color 0.25s, background 0.25s; }
     .libro-tag-inedito { display: inline-block; margin-top: 1.25rem; font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 0.5px dashed var(--text-dim); color: var(--text-dim); font-style: italic; }
 
@@ -207,12 +223,12 @@
     .texto-item { display: grid; grid-template-columns: 5rem 1fr auto 1.5rem; gap: 1rem; align-items: center; padding: 1.4rem 1.25rem; border-bottom: 0.5px solid var(--border); transition: background 0.2s, padding-left 0.25s; }
     .texto-item:first-child { border-top: 0.5px solid var(--border); }
     .texto-item:hover { background: var(--bg-2); padding-left: 2rem; }
-    .texto-year-col { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.2s; }
+    .texto-year-col { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.2s; }
     .texto-item:hover .texto-year-col { color: var(--text-muted); }
-    .texto-title-col a { font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: var(--text-muted); transition: color 0.2s; display: block; }
+    .texto-title-col a { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--text-muted); transition: color 0.2s; display: block; }
     .texto-item:hover .texto-title-col a { color: var(--text); }
-    .texto-pub-col { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--text-dim); text-align: right; transition: color 0.2s; white-space: nowrap; }
-    .texto-item:hover .texto-pub-col { color: var(--accent); }
+    .texto-pub-col { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--accent); text-align: right; transition: color 0.2s; white-space: nowrap; opacity: 0.7; }
+    .texto-item:hover .texto-pub-col { color: var(--accent); opacity: 1; }
     .texto-arrow { font-size: 0.9rem; color: var(--text-dim); opacity: 0; transition: opacity 0.2s, color 0.2s; text-align: right; }
     .texto-item:hover .texto-arrow { opacity: 1; color: var(--accent); }
 
@@ -220,20 +236,20 @@
     .cuadernos-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .cuadernos-kicker { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .cuadernos-title { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; font-style: italic; color: var(--text); line-height: 1.2; margin-bottom: 1.25rem; }
-    .cuadernos-desc { font-family: var(--serif); font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; }
+    .cuadernos-desc { font-family: var(--serif); font-size: 1.2rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; }
     .substack-feed { display: flex; flex-direction: column; gap: 2px; }
     .substack-post { padding: 1.5rem; background: var(--bg-2); border: 0.5px solid var(--border); transition: border-color 0.2s, background 0.2s; display: block; }
     .substack-post:hover { border-color: var(--accent-line); background: var(--bg-3); }
     .substack-post-date { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.4rem; }
-    .substack-post-title { font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--text-muted); line-height: 1.4; transition: color 0.2s; }
+    .substack-post-title { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--text-muted); line-height: 1.4; transition: color 0.2s; }
     .substack-post:hover .substack-post-title { color: var(--text); }
     .substack-loading { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--text-dim); padding: 1rem 0; }
 
     footer { padding: 3rem 0; border-top: 0.5px solid var(--border); }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-    .footer-name { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--text-dim); }
+    .footer-name { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--text-dim); }
     .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); transition: color 0.2s; }
+    .footer-links a { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
@@ -243,15 +259,94 @@
     .hero-actions { animation: fadeUp 0.6s ease both; animation-delay: 0.5s; }
 
     @media (max-width: 640px) {
-      .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .bio-aside { position: static; display: flex; gap: 1.5rem; align-items: flex-start; }
-      .bio-photo { width: 120px; flex-shrink: 0; }
-      .cuadernos-inner { grid-template-columns: 1fr; }
-      .texto-item { grid-template-columns: 3.5rem 1fr; }
-      .texto-pub-col, .texto-arrow { display: none; }
-      nav .container { flex-direction: column; gap: 1rem; }
-      .nav-links { gap: 1.25rem; }
+      /* BASE */
+      body { font-size: 17px; line-height: 1.8; }
+      .container { padding: 0 1.25rem; }
+
+      /* NAV */
+      nav { padding: 0; position: sticky; top: 0; z-index: 100; background: rgba(14,12,10,0.92); backdrop-filter: blur(10px); border-bottom: 0.5px solid var(--border); }
+      nav .container { flex-direction: row; justify-content: space-between; align-items: center; padding: 0 1.25rem; height: 52px; }
+      .nav-links { display: none; }
+      nav .container::after { content: '☰'; font-size: 1.2rem; color: var(--text-dim); cursor: pointer; }
+
+      /* HERO */
+      .hero { padding: 4rem 0 3rem; }
+      .hero::after { display: none; }
+      .hero-name { font-size: clamp(2.6rem, 12vw, 3.5rem); line-height: 1.0; }
+      .hero-tagline { font-size: 1rem; margin-top: 1.25rem; max-width: 100%; }
+      .hero-actions { margin-top: 2rem; flex-direction: column; align-items: flex-start; gap: 0.85rem; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; padding: 0.85rem 1.5rem; font-size: 0.72rem; }
+
+      /* SECTION DIVIDERS */
+      .section-divider { margin-bottom: 2rem; }
+      .section-label { font-size: 0.62rem; }
+
+      /* POÉTICA */
+      .poetica-section { padding: 3.5rem 0; }
+      .poetica-verso { font-size: clamp(1.2rem, 5vw, 1.5rem); padding: 0.75rem 0; }
+      .poetica-nota { font-size: 1rem; line-height: 1.8; }
+
+      /* BIO */
+      .bio-section { padding: 3.5rem 0; }
+      .bio-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+      .bio-aside { position: static; display: flex; gap: 1.25rem; align-items: flex-start; }
+      .bio-photo { width: 100px; flex-shrink: 0; aspect-ratio: 3/4; }
+      .bio-aside-name { font-size: 0.55rem; }
+      .bio-text p { font-size: 1rem; line-height: 1.8; margin-bottom: 1rem; }
+
+      /* LIBROS */
+      .libros-section { padding: 3.5rem 0; }
+      .libros-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+      .libro-card { padding: 1.5rem 1rem; min-height: 160px; }
+      .libro-card.inedito { padding-top: 1.5rem; }
+      .libro-num { font-size: 3rem; bottom: 0.75rem; right: 0.75rem; }
+      .libro-title { font-size: 1rem; }
+      .libro-editorial { font-size: 0.58rem; }
+      .libro-tag, .libro-tag-inedito { font-size: 0.5rem; padding: 0.2rem 0.5rem; margin-top: 0.75rem; }
+
+      /* TEXTOS Y PRENSA */
+      .textos-section { padding: 3.5rem 0; }
+      .texto-item { grid-template-columns: 3.5rem 1fr; gap: 0.75rem; padding: 1rem 0.75rem; }
+      .texto-pub-col { display: none; }
+      .texto-arrow { display: none; }
+      .texto-title-col a { font-size: 1rem; }
+      .texto-year-col { font-size: 0.62rem; }
+
+      /* CUADERNOS */
+      .cuadernos-section { padding: 3.5rem 0; }
+      .cuadernos-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .cuadernos-title { font-size: 1.8rem; }
+      .cuadernos-desc { font-size: 1rem; margin-bottom: 1.5rem; }
+      .btn-substack { width: 100%; justify-content: center; }
+      .substack-post { padding: 1rem; }
+      .substack-post-title { font-size: 1rem; }
+
+      /* FOOTER */
+      footer { padding: 2rem 0; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .footer-links { gap: 1.25rem; flex-wrap: wrap; }
+      .footer-links a { font-size: 0.62rem; }
     }
+
+    /* Hamburger menu open state */
+    nav.open .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 52px;
+      left: 0;
+      right: 0;
+      background: rgba(14,12,10,0.97);
+      backdrop-filter: blur(12px);
+      padding: 1.5rem 1.25rem 2rem;
+      gap: 0;
+      border-bottom: 0.5px solid var(--border);
+      z-index: 99;
+    }
+    nav.open .nav-links li { border-bottom: 0.5px solid var(--border); }
+    nav.open .nav-links a { display: block; padding: 1rem 0; font-size: 0.8rem; color: var(--text-muted); }
+    nav.open .nav-links a:hover { color: var(--accent); }
+    nav.open .container::after { content: '✕'; }
   </style>
 </head>
 <body>
@@ -260,7 +355,6 @@
 
   <nav>
     <div class="container">
-      <span class="nav-name">Samuel Martínez Andrade</span>
       <ul class="nav-links">
         <li><a href="#poetica">Poética</a></li>
         <li><a href="#obra">Obra</a></li>
@@ -278,8 +372,8 @@
       <h1 class="hero-name">Samuel Martínez Andrade</h1>
       <p class="hero-tagline">Escritura de multiplicidad, de texturas y territorios corporales, donde lo Eterno es el vórtice que habita en tu pecho.</p>
       <div class="hero-actions">
-        <a href="#obra" class="btn-primary">Ver obra</a>
-        <a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener" class="btn-ghost">Leer Cuadernos del Ser</a>
+        <a href="#obra" class="btn-primary"><span>Ver obra</span></a>
+        <a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener" class="btn-ghost"><span>Leer Cuadernos del Ser</span></a>
       </div>
     </div>
   </section>
@@ -298,8 +392,7 @@
         <li class="poetica-verso"><strong>Las palabras</strong> son las que tocan</li>
       </ul>
       <p class="poetica-nota">
-        La escritura como movimiento inmanente. El lenguaje que no nombra sino que toca, en tanto performatividad absoluta del cuerpo; el lenguaje que no describe
-        sino que mancha — signos asignificantes de colores no-diferenciados.
+        La escritura como movimiento inmanente. Un lenguaje que no describe sino que mancha — signos asignificantes de colores no-diferenciados, en tanto performatividad absoluta del cuerpo.
       </p>
     </div>
   </section>
@@ -351,9 +444,9 @@
           <p class="libro-year">2025</p>
           <h2 class="libro-title">???;) — Pregunta pregunta pregunta guiño</h2>
           <p class="libro-editorial">Floresta Efímera · CCEMx</p>
-          <div style="display:flex; gap:0.5rem; margin-top:1.25rem; flex-wrap:wrap;">
-            <a href="https://drive.google.com/file/d/1geZlISNBzic_aWT0cx-6w3Klfnx9_NMr/view" target="_blank" rel="noopener" style="font-family:var(--sans); font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.3rem 0.7rem; border:0.5px solid var(--accent); color:var(--accent); transition:background 0.2s, color 0.2s;" onmouseover="this.style.background='var(--accent)';this.style.color='var(--bg)';" onmouseout="this.style.background='transparent';this.style.color='var(--accent)';">Libro</a>
-            <a href="https://medium.com/@sammtza/-17c9dd27faf9" target="_blank" rel="noopener" style="font-family:var(--sans); font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.3rem 0.7rem; border:0.5px solid var(--border); color:var(--text-dim); transition:background 0.2s, color 0.2s;" onmouseover="this.style.borderColor='var(--accent-line)';this.style.color='var(--text)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-dim)';">Artículo</a>
+          <div style="display:flex; gap:0.5rem; margin-top:1.25rem; flex-wrap:wrap; align-items:center; justify-content:flex-start;">
+            <a href="https://drive.google.com/file/d/1geZlISNBzic_aWT0cx-6w3Klfnx9_NMr/view" target="_blank" rel="noopener" class="libro-tag" style="text-decoration:none;">Poesía</a>
+            <a href="https://medium.com/@sammtza/-17c9dd27faf9" target="_blank" rel="noopener" class="libro-tag" style="text-decoration:none; border-color:var(--border); color:var(--text-dim);" onmouseover="this.style.borderColor='var(--accent-line)';this.style.color='var(--text)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-dim)';">Artículo</a>
           </div>
         </div>
         <a class="libro-card" href="https://1drv.ms/b/c/6b5b9a6460c111a8/IQCb-5ykVQPhTp-tef1kmgtRAaqGHwyVpJHRPWaCn9RlKAs?e=ZDdxqQ" target="_blank" rel="noopener">
@@ -399,16 +492,20 @@
       </div>
       <div class="libros-grid">
         <div class="libro-card inedito">
-          <span class="libro-num">VIII</span>
-          <p class="libro-year">2026 —</p>
-          <h2 class="libro-title">Nuestra Eternidad</h2>
+          <span class="libro-num">VII</span>
+          <h2 class="libro-title">Labyrinthos</h2>
           <p class="libro-editorial">Poesía · inédito</p>
           <span class="libro-tag-inedito">En escritura</span>
         </div>
         <div class="libro-card inedito">
-          <span class="libro-num">VII</span>
-          <p class="libro-year">2025 —</p>
-          <h2 class="libro-title">Labyrinthos</h2>
+          <span class="libro-num">VIII</span>
+          <h2 class="libro-title">Maneras de Mirar Milagros</h2>
+          <p class="libro-editorial">Poesía · inédito</p>
+          <span class="libro-tag-inedito">En escritura</span>
+        </div>
+        <div class="libro-card inedito">
+          <span class="libro-num">IX</span>
+          <h2 class="libro-title">Nuestra Eternidad</h2>
           <p class="libro-editorial">Poesía · inédito</p>
           <span class="libro-tag-inedito">En escritura</span>
         </div>
@@ -531,7 +628,7 @@
   <section class="cuadernos-section" id="cuadernos">
     <div class="container">
       <div class="section-divider">
-        <span class="section-label">Publicación</span>
+        <span class="section-label">Bitácora viva</span>
         <div class="divider-line"></div>
       </div>
       <div class="cuadernos-inner">
@@ -539,7 +636,6 @@
           <p class="cuadernos-kicker">Substack · desde 2025</p>
           <h2 class="cuadernos-title">Cuadernos del Ser</h2>
           <p class="cuadernos-desc">Escritura viva, formas de habitar el lenguaje y el mundo desde el afecto y el cuidado.</p>
-          <a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener" class="btn-primary">Suscribirse</a>
         </div>
         <div>
           <div id="substack-feed" class="substack-feed">
@@ -567,7 +663,7 @@
   <script>
     async function loadSubstack() {
       const feed = document.getElementById('substack-feed');
-      const fallback = '<a class="substack-post" href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener"><p class="substack-post-title">Ver todas las entradas en Substack →</p></a>';
+      const btnFallback = '<a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener" class="btn-substack"><span>Cuadernos del Ser</span><span class="arrow">→</span></a>';
       try {
         const url = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fcuadernosdelser.substack.com%2Ffeed&count=3&api_key=';
         const res = await fetch(url, { signal: AbortSignal.timeout(6000) });
@@ -581,12 +677,20 @@
             + '<p class="substack-post-date">' + date + '</p>'
             + '<p class="substack-post-title">' + item.title + '</p>'
             + '</a>';
-        }).join('');
+        }).join('') + '<p style="margin-top:1rem; font-family:var(--sans); font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase;"><a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener" style="color:var(--text-dim); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color=\'var(--accent)\'" onmouseout="this.style.color=\'var(--text-dim)\'">Ver todas las entradas →</a></p>';
       } catch(e) {
-        feed.innerHTML = fallback;
+        feed.innerHTML = btnFallback;
       }
     }
     loadSubstack();
+
+    // Hamburger menu
+    const nav = document.querySelector('nav');
+    nav.addEventListener('click', e => {
+      if (window.innerWidth > 640) return;
+      if (e.target.closest('.nav-links a')) { nav.classList.remove('open'); return; }
+      if (!e.target.closest('.nav-links')) { nav.classList.toggle('open'); }
+    });
   </script>
 
   <script>
@@ -596,7 +700,7 @@
     if (!ctx) return;
 
     let W, H, particles = [], cols, rows, field = [];
-    const SCALE = 6, SPEED = 0.38, FADE = 0.018, COUNT = 520;
+    const SCALE = 5, SPEED = 0.32, FADE = 0.025, COUNT = 480;
     const ACCENT = [201, 137, 58];
 
     function resize() {
@@ -650,71 +754,98 @@
     function updateField() {
       for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
-          const n = noise2(x * 0.009 + t * 0.022, y * 0.009 + t * 0.016);
-          const n2 = noise2(x * 0.006 - t * 0.014, y * 0.012 + t * 0.018);
+          const n = noise2(x * 0.014 + t * 0.022, y * 0.014 + t * 0.016);
+          const n2 = noise2(x * 0.010 - t * 0.014, y * 0.010 + t * 0.018);
           field[y * cols + x] = (n + n2) * Math.PI * 2.2;
         }
       }
     }
 
+    window.addEventListener('resize', resize);
+
+    // Mouse interaction
+    let mouse = { x: -9999, y: -9999, active: false };
+    window.addEventListener('mousemove', e => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      mouse.active = true;
+    });
+    window.addEventListener('mouseleave', () => { mouse.active = false; });
+
+    // Override updateField to include mouse repulsion
+    function updateFieldWithMouse() {
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          const n = noise2(x * 0.014 + t * 0.022, y * 0.014 + t * 0.016);
+          const n2 = noise2(x * 0.010 - t * 0.014, y * 0.010 + t * 0.018);
+          let angle = (n + n2) * Math.PI * 2.2;
+
+          if (mouse.active) {
+            const wx = x * SCALE;
+            const wy = y * SCALE;
+            const dx = wx - mouse.x;
+            const dy = wy - mouse.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const radius = 140;
+            if (dist < radius) {
+              const strength = (1 - dist / radius) * 1.8;
+              const awayAngle = Math.atan2(dy, dx);
+              angle = angle + (awayAngle - angle) * strength * 0.6;
+            }
+          }
+          field[y * cols + x] = angle;
+        }
+      }
+    }
+
+    // Patch draw to use mouse-aware field update
     function draw() {
-      // Very slow fade
-      ctx.fillStyle = `rgba(14, 12, 10, ${FADE})`;
+      ctx.fillStyle = 'rgba(0, 0, 0, ' + FADE + ')';
       ctx.fillRect(0, 0, W, H);
-
-      updateField();
-
+      updateFieldWithMouse();
       for (const p of particles) {
         const cx = Math.floor(p.x / SCALE);
         const cy = Math.floor(p.y / SCALE);
         if (cx < 0 || cx >= cols || cy < 0 || cy >= rows) {
-          p.x = Math.random() * W;
-          p.y = Math.random() * H;
-          p.age = 0;
-          continue;
+          p.x = Math.random() * W; p.y = Math.random() * H; p.age = 0; continue;
+        }
+        const angle = field[cy * cols + cx];
+
+        if (mouse.active) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 80 && dist > 0) {
+            const force = (1 - dist / 80) * 1.2;
+            p.x += (dx / dist) * force;
+            p.y += (dy / dist) * force;
+          }
         }
 
-        const angle = field[cy * cols + cx];
         p.x += Math.cos(angle) * p.speed * SPEED;
         p.y += Math.sin(angle) * p.speed * SPEED;
         p.age++;
-
         if (p.age > p.maxAge) {
-          p.x = Math.random() * W;
-          p.y = Math.random() * H;
-          p.age = 0;
-          p.maxAge = 120 + Math.random() * 200;
+          p.x = Math.random() * W; p.y = Math.random() * H; p.age = 0;
+          p.maxAge = 180 + Math.random() * 280;
           p.speed = 0.18 + Math.random() * 0.55;
           p.hue = Math.random() < 0.7 ? 0 : 1;
         }
-
         const life = Math.sin(Math.PI * p.age / p.maxAge);
         if (life < 0.01) continue;
-
         let r, g, b, alpha;
-        if (p.hue === 0) {
-          // amber
-          r = ACCENT[0]; g = ACCENT[1]; b = ACCENT[2];
-          alpha = life * 0.18;
-        } else {
-          // cold deep blue
-          r = 30; g = 50; b = 90;
-          alpha = life * 0.10;
-        }
-
+        if (p.hue === 0) { r = 201; g = 137; b = 58; alpha = life * 0.18; }
+        else { r = 30; g = 50; b = 90; alpha = life * 0.10; }
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+        ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
         ctx.fill();
       }
-
       t += 0.4;
       requestAnimationFrame(draw);
     }
 
-    window.addEventListener('resize', resize);
     resize();
-    // Prime the canvas dark
     ctx.fillStyle = 'rgb(14,12,10)';
     ctx.fillRect(0, 0, W, H);
     draw();
