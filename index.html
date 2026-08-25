@@ -196,9 +196,15 @@
     .bio-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
     .bio-grid { display: grid; grid-template-columns: 220px 1fr; gap: 4rem; align-items: start; }
     .bio-aside { position: sticky; top: 2rem; }
-    .bio-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; filter: grayscale(20%) contrast(1.05); border: 0.5px solid var(--border); display: block; margin-bottom: 1.25rem; }
+    .bio-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center center; filter: grayscale(0%) contrast(1.0); border: 0.5px solid var(--border); display: block; margin-bottom: 1.25rem; }
     .bio-aside-name { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); line-height: 1.6; }
     .bio-text p { margin-bottom: 1.5rem; color: var(--text-muted); font-size: 1.15rem; line-height: 1.9; }
+    .reconocimientos { margin-top: 2rem; padding-top: 2rem; border-top: 0.5px solid var(--border); }
+    .reconocimiento-item { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; padding: 0.85rem 0; border-bottom: 0.5px solid var(--border); align-items: baseline; }
+    .reconocimiento-item:first-child { border-top: 0.5px solid var(--border); }
+    .reconocimiento-year { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--text-dim); }
+    .reconocimiento-text { font-family: var(--serif); font-size: 1rem; color: var(--text-muted); line-height: 1.6; font-style: italic; }
+    .reconocimiento-text strong { color: var(--text); font-style: normal; font-weight: 500; }
     .bio-text p:last-child { margin-bottom: 0; }
     .bio-text strong { color: var(--text); font-weight: 500; }
 
@@ -292,6 +298,8 @@
       .bio-aside { position: static; display: flex; gap: 1.25rem; align-items: flex-start; }
       .bio-photo { width: 100px; flex-shrink: 0; aspect-ratio: 3/4; }
       .bio-aside-name { font-size: 0.55rem; }
+      .reconocimiento-item { grid-template-columns: 3rem 1fr; gap: 0.75rem; }
+      .reconocimiento-text { font-size: 0.9rem; }
       .bio-text p { font-size: 1rem; line-height: 1.8; margin-bottom: 1rem; }
 
       /* LIBROS */
@@ -357,6 +365,7 @@
     <div class="container">
       <ul class="nav-links">
         <li><a href="#poetica">Poética</a></li>
+        <li><a href="#reconocimientos">Reconocimientos</a></li>
         <li><a href="#obra">Obra</a></li>
         <li><a href="#textos">Textos</a></li>
         <li><a href="#prensa">Prensa</a></li>
@@ -397,7 +406,7 @@
     </div>
   </section>
 
-  <section class="bio-section" id="bio">
+  <section class="bio-section" id="reconocimientos">
     <div class="container">
       <div class="section-divider">
         <span class="section-label">Acerca del autor</span>
@@ -427,6 +436,20 @@
           <p>
             Publica <strong>Cuadernos del Ser</strong>, una bitácora de escritura viva en Substack.
           </p>
+          <div class="reconocimientos">
+            <div class="section-divider" style="margin-top:2rem; margin-bottom:1.5rem;">
+              <span class="section-label">Reconocimientos</span>
+              <div class="divider-line"></div>
+            </div>
+            <div class="reconocimiento-item">
+              <span class="reconocimiento-year">2026</span>
+              <span class="reconocimiento-text"><strong>PECDA Querétaro</strong> — Programa de Estímulo a la Creación y al Desarrollo Artístico, Sistema de Apoyos a la Creación y Proyectos Culturales · Secretaría de Cultura, por el proyecto inédito <em>Nuestra Eternidad</em></span>
+            </div>
+            <div class="reconocimiento-item">
+              <span class="reconocimiento-year">2020</span>
+              <span class="reconocimiento-text"><strong>Apoyarte</strong> — Programa de Apoyo a la Producción Artística de la Secretaría de Cultura de Querétaro, por <em>Removiste la piedra</em></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
