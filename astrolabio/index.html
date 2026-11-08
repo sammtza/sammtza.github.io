@@ -52,6 +52,10 @@
     body { background: var(--bg); color: var(--text); font-family: var(--serif); font-size: 18px; line-height: 1.75; min-height: 100vh; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     #flow-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      #flow-canvas { display: none; }
+    }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
 
     /* NAV (como en el sitio) */
@@ -216,10 +220,9 @@
   <nav>
     <div class="container">
       <ul class="nav-links">
-        <li><a href="/#poetica">Poética</a></li>
         <li><a href="/#semblanza">Semblanza</a></li>
         <li><a href="/#reconocimientos">Reconocimientos</a></li>
-        <li><a href="/#obra">Obra</a></li>
+        <li><a href="/#obra">Libros</a></li>
         <li><a href="/#textos">Textos</a></li>
         <li><a href="/#prensa">Prensa</a></li>
         <li><a href="/#cuadernos">Cuadernos</a></li>
@@ -10704,20 +10707,17 @@ navEl.addEventListener("click", e => {
   </script>
   <script>
   (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const canvas = document.getElementById('flow-canvas');
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let W, H, particles = [], cols, rows, field = [];
+    let W, H, particles = [];
     const SCALE = 5, SPEED = 0.32, FADE = 0.025, COUNT = 480;
-    const ACCENT = [201, 137, 58];
 
     function resize() {
       W = canvas.width = window.innerWidth;
       H = canvas.height = window.innerHeight;
-      cols = Math.ceil(W / SCALE) + 1;
-      rows = Math.ceil(H / SCALE) + 1;
-      field = new Float32Array(cols * rows);
       initParticles();
     }
 
@@ -10760,17 +10760,6 @@ navEl.addEventListener("click", e => {
     }
 
     let t = 0, frame = 0;
-    function updateField() {
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          const n = noise2(x * 0.014 + t * 0.022, y * 0.014 + t * 0.016);
-          const n2 = noise2(x * 0.010 - t * 0.014, y * 0.010 + t * 0.018);
-          field[y * cols + x] = (n + n2) * Math.PI * 2.2;
-        }
-      }
-    }
-
-    window.addEventListener('resize', resize);
 
     // Mouse interaction
     let mouse = { x: -9999, y: -9999, active: false };
@@ -10781,47 +10770,36 @@ navEl.addEventListener("click", e => {
     });
     window.addEventListener('mouseleave', () => { mouse.active = false; });
 
-    // Override updateField to include mouse repulsion
-    function updateFieldWithMouse() {
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          const n = noise2(x * 0.014 + t * 0.022, y * 0.014 + t * 0.016);
-          const n2 = noise2(x * 0.010 - t * 0.014, y * 0.010 + t * 0.018);
-          let angle = (n + n2) * Math.PI * 2.2;
-
-          if (mouse.active) {
-            const wx = x * SCALE;
-            const wy = y * SCALE;
-            const dx = wx - mouse.x;
-            const dy = wy - mouse.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            const radius = 140;
-            if (dist < radius) {
-              const strength = (1 - dist / radius) * 1.8;
-              const awayAngle = Math.atan2(dy, dx);
-              angle = angle + (awayAngle - angle) * strength * 0.6;
-            }
-          }
-          field[y * cols + x] = angle;
+    // Flow direction computed only where each particle is (same grid and formula as before)
+    function angleAt(cx, cy) {
+      const n = noise2(cx * 0.014 + t * 0.022, cy * 0.014 + t * 0.016);
+      const n2 = noise2(cx * 0.010 - t * 0.014, cy * 0.010 + t * 0.018);
+      let angle = (n + n2) * Math.PI * 2.2;
+      if (mouse.active) {
+        const dx = cx * SCALE - mouse.x;
+        const dy = cy * SCALE - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const radius = 140;
+        if (dist < radius) {
+          const strength = (1 - dist / radius) * 1.8;
+          const awayAngle = Math.atan2(dy, dx);
+          angle = angle + (awayAngle - angle) * strength * 0.6;
         }
       }
+      return angle;
     }
 
-    // Patch draw to use mouse-aware field update
     function draw() {
       ctx.globalCompositeOperation = 'destination-out';
       ctx.fillStyle = 'rgba(0, 0, 0, ' + FADE + ')';
       ctx.fillRect(0, 0, W, H);
-      if ((frame = (frame || 0) + 1) % 20 === 0) { ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'; ctx.fillRect(0, 0, W, H); }
+      if (++frame % 20 === 0) { ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'; ctx.fillRect(0, 0, W, H); }
       ctx.globalCompositeOperation = 'source-over';
-      updateFieldWithMouse();
       for (const p of particles) {
-        const cx = Math.floor(p.x / SCALE);
-        const cy = Math.floor(p.y / SCALE);
-        if (cx < 0 || cx >= cols || cy < 0 || cy >= rows) {
+        if (p.x < 0 || p.x >= W || p.y < 0 || p.y >= H) {
           p.x = Math.random() * W; p.y = Math.random() * H; p.age = 0; continue;
         }
-        const angle = field[cy * cols + cx];
+        const angle = angleAt(Math.floor(p.x / SCALE), Math.floor(p.y / SCALE));
 
         if (mouse.active) {
           const dx = p.x - mouse.x;
@@ -10857,6 +10835,7 @@ navEl.addEventListener("click", e => {
       requestAnimationFrame(draw);
     }
 
+    window.addEventListener('resize', resize);
     resize();
     ctx.clearRect(0, 0, W, H);
     draw();
