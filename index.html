@@ -147,7 +147,7 @@
     body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 30% 20%, #1a120800 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, #0a0e1500 0%, transparent 60%); pointer-events: none; z-index: 1; }
     .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
 
-    nav { padding: 2rem 0 1.5rem; border-bottom: 0.5px solid var(--border); }
+    nav { padding: 2rem 0 1.5rem; }
     nav .container { display: flex; justify-content: space-between; align-items: baseline; }
     .nav-links { display: flex; flex-wrap: wrap; column-gap: 2rem; row-gap: 0.6rem; list-style: none; }
     .nav-links a { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); transition: color 0.2s; }
@@ -156,11 +156,11 @@
     .nav-links a.nav-astrolabio:hover { opacity: 1; }
 
     .hero { padding: 7rem 0 5rem; position: relative; }
-    .hero::after { content: ''; position: absolute; left: -2rem; top: 5rem; width: 0.5px; height: 60%; background: linear-gradient(to bottom, transparent, var(--accent-line), transparent); }
+    .hero .container::after { content: ''; position: absolute; left: 0; top: -2rem; width: 0.5px; height: 60%; background: linear-gradient(to bottom, transparent, var(--accent-line), transparent); }
     .hero-eyebrow { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
     .hero-eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 0.5px; background: var(--accent); }
     .hero-name { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.01em; color: var(--text); }
-    .hero-tagline { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-style: italic; color: var(--text-muted); margin-top: 1.5rem; max-width: 560px; line-height: 1.6; }
+    .hero-tagline { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-style: normal; color: var(--text-muted); margin-top: 1.5rem; max-width: 560px; line-height: 1.6; }
     .hero-actions { margin-top: 3rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
     .btn-primary { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2.2rem; border: 0.5px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; display: inline-flex; align-items: center; gap: 0.75rem; position: relative; overflow: hidden; text-decoration: none; animation: pulse-border 3s ease-in-out infinite; }
     .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--accent); transform: translateX(-101%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); z-index: 0; }
@@ -188,15 +188,8 @@
     .section-label { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); white-space: nowrap; opacity: 0.85; }
     .divider-line { flex: 1; height: 0.5px; background: var(--border); }
 
-    .poetica-section { padding: 6rem 0; border-top: 0.5px solid var(--border); }
-    .poetica-versos { list-style: none; display: flex; flex-direction: column; gap: 0; margin-bottom: 3rem; }
-    .poetica-verso { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 1.9rem); font-style: italic; color: var(--text-dim); line-height: 1.5; padding: 0.85rem 0; border-bottom: 0.5px solid var(--border); transition: color 0.3s, padding-left 0.3s; cursor: default; }
-    .poetica-verso:first-child { border-top: 0.5px solid var(--border); }
-    .poetica-verso:hover { color: var(--text); padding-left: 1.25rem; }
-    .poetica-verso strong { font-weight: 400; color: var(--accent); font-style: normal; }
-    .poetica-nota { font-family: var(--serif); font-size: 1.25rem; color: var(--text-muted); font-style: italic; line-height: 1.9; max-width: 680px; }
 
-    .bio-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
+    .bio-section { padding: 5rem 0; }
     .bio-grid { display: grid; grid-template-columns: 220px 1fr; gap: 4rem; align-items: start; }
     .bio-aside { position: sticky; top: 2rem; }
     .bio-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center center; filter: grayscale(0%) contrast(1.0); border: 0.5px solid var(--border); display: block; margin-bottom: 1.25rem; }
@@ -211,7 +204,7 @@
     .bio-text p:last-child { margin-bottom: 0; }
     .bio-text strong { color: var(--text); font-weight: 500; }
 
-    .libros-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
+    .libros-section { padding: 5rem 0; }
     .libros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3px; }
     .libro-card { background: var(--bg-2); padding: 2.5rem 2rem; position: relative; transition: background 0.25s, transform 0.25s; cursor: pointer; border: 0.5px solid var(--border); display: block; min-height: 200px; }
     .libro-card:hover { background: var(--bg-3); border-color: var(--accent); transform: translateY(-3px); }
@@ -227,21 +220,21 @@
     .libro-tag { display: inline-block; margin-top: 1.25rem; font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 0.5px solid var(--accent); color: var(--accent); transition: border-color 0.25s, color 0.25s, background 0.25s; }
     .libro-tag-inedito { display: inline-block; margin-top: 1.25rem; font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 0.5px dashed var(--text-dim); color: var(--text-dim); font-style: italic; }
 
-    .textos-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
+    .textos-section { padding: 5rem 0; }
     .textos-list { display: flex; flex-direction: column; }
     .texto-item { display: grid; grid-template-columns: 5rem 1fr auto 1.5rem; gap: 1rem; align-items: center; padding: 1.4rem 1.25rem; border-bottom: 0.5px solid var(--border); transition: background 0.2s, padding-left 0.25s; }
     .texto-item:first-child { border-top: 0.5px solid var(--border); }
     .texto-item:hover { background: var(--bg-2); padding-left: 2rem; }
     .texto-year-col { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.2s; }
     .texto-item:hover .texto-year-col { color: var(--text-muted); }
-    .texto-title-col a { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--text-muted); transition: color 0.2s; display: block; }
-    .texto-item:hover .texto-title-col a { color: var(--text); }
+    .texto-title-col { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--text-muted); transition: color 0.2s; display: block; }
+    .texto-item:hover .texto-title-col { color: var(--text); }
     .texto-pub-col { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--accent); text-align: right; transition: color 0.2s; white-space: nowrap; opacity: 0.7; }
     .texto-item:hover .texto-pub-col { color: var(--accent); opacity: 1; }
     .texto-arrow { font-size: 0.9rem; color: var(--text-dim); opacity: 0; transition: opacity 0.2s, color 0.2s; text-align: right; }
     .texto-item:hover .texto-arrow { opacity: 1; color: var(--accent); }
 
-    .cuadernos-section { padding: 5rem 0; border-top: 0.5px solid var(--border); }
+    .cuadernos-section { padding: 5rem 0; }
     .cuadernos-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .cuadernos-kicker { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .cuadernos-title { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; font-style: italic; color: var(--text); line-height: 1.2; margin-bottom: 1.25rem; }
@@ -254,7 +247,7 @@
     .substack-post:hover .substack-post-title { color: var(--text); }
     .substack-loading { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--text-dim); padding: 1rem 0; }
 
-    footer { padding: 3rem 0; border-top: 0.5px solid var(--border); }
+    footer { padding: 3rem 0; }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
     .footer-name { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--text-dim); }
     .footer-links { display: flex; gap: 2rem; list-style: none; }
@@ -273,14 +266,14 @@
       .container { padding: 0 1.25rem; }
 
       /* NAV */
-      nav { padding: 0; position: sticky; top: 0; z-index: 100; background: rgba(27,24,20,0.94); backdrop-filter: blur(10px); border-bottom: 0.5px solid var(--border); }
+      nav { padding: 0; position: sticky; top: 0; z-index: 100; background: rgba(27,24,20,0.94); backdrop-filter: blur(10px); }
       nav .container { flex-direction: row; justify-content: space-between; align-items: center; padding: 0 1.25rem; height: 52px; }
       .nav-links { display: none; }
       nav .container::after { content: '☰'; font-size: 1.2rem; color: var(--text-dim); cursor: pointer; }
 
       /* HERO */
       .hero { padding: 4rem 0 3rem; }
-      .hero::after { display: none; }
+      .hero .container::after { display: none; }
       .hero-name { font-size: clamp(2.6rem, 12vw, 3.5rem); line-height: 1.0; }
       .hero-tagline { font-size: 1rem; margin-top: 1.25rem; max-width: 100%; }
       .hero-actions { margin-top: 2rem; flex-direction: column; align-items: flex-start; gap: 0.85rem; }
@@ -291,10 +284,7 @@
       .section-label { font-size: 0.62rem; }
 
       /* POÉTICA */
-      .poetica-section { padding: 3.5rem 0; }
-      .poetica-verso { font-size: clamp(1.2rem, 5vw, 1.5rem); padding: 0.75rem 0; }
-      .poetica-nota { font-size: 1rem; line-height: 1.8; }
-
+      
       /* BIO */
       .bio-section { padding: 3.5rem 0; }
       .bio-grid { grid-template-columns: 1fr; gap: 1.75rem; }
@@ -320,7 +310,7 @@
       .texto-item { grid-template-columns: 3.5rem 1fr; gap: 0.75rem; padding: 1rem 0.75rem; }
       .texto-pub-col { display: none; }
       .texto-arrow { display: none; }
-      .texto-title-col a { font-size: 1rem; }
+      .texto-title-col { font-size: 1rem; }
       .texto-year-col { font-size: 0.62rem; }
 
       /* CUADERNOS */
@@ -337,6 +327,12 @@
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .footer-links { gap: 1.25rem; flex-wrap: wrap; }
       .footer-links a { font-size: 0.62rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      #flow-canvas { display: none; }
     }
 
     /* Hamburger menu open state */
@@ -367,10 +363,9 @@
   <nav>
     <div class="container">
       <ul class="nav-links">
-        <li><a href="#poetica">Poética</a></li>
         <li><a href="#semblanza">Semblanza</a></li>
         <li><a href="#reconocimientos">Reconocimientos</a></li>
-        <li><a href="#obra">Obra</a></li>
+        <li><a href="#obra">Libros</a></li>
         <li><a href="#textos">Textos</a></li>
         <li><a href="#prensa">Prensa</a></li>
         <li><a href="#cuadernos">Cuadernos</a></li>
@@ -384,30 +379,11 @@
     <div class="container">
       <p class="hero-eyebrow">Querétaro, México</p>
       <h1 class="hero-name">Samuel Martínez Andrade</h1>
-      <p class="hero-tagline">Escritura de multiplicidad y territorios corporales. Lo Eterno como vórtice que habita en el pecho.</p>
+      <p class="hero-tagline">Escritura de multiplicidad y territorios corporales. Lo Eterno como vórtice que habita en el pecho. La escritura como movimiento inmanente: performatividad absoluta del cuerpo.</p>
       <div class="hero-actions">
         <a href="#obra" class="btn-primary"><span>Ver obra</span></a>
         <a href="https://cuadernosdelser.substack.com" target="_blank" rel="noopener" class="btn-ghost"><span>Leer Cuadernos del Ser</span></a>
       </div>
-    </div>
-  </section>
-
-  <section class="poetica-section" id="poetica">
-    <div class="container">
-      <div class="section-divider">
-        <span class="section-label">Poética</span>
-        <div class="divider-line"></div>
-      </div>
-      <ul class="poetica-versos">
-        <li class="poetica-verso"><strong>Las manos</strong> son las que ven</li>
-        <li class="poetica-verso"><strong>Los ojos</strong> son los que comen</li>
-        <li class="poetica-verso"><strong>La boca</strong> es la que escucha</li>
-        <li class="poetica-verso"><strong>Los oídos</strong> son lo que sienten</li>
-        <li class="poetica-verso"><strong>Las palabras</strong> son las que tocan</li>
-      </ul>
-      <p class="poetica-nota">
-        La escritura como movimiento inmanente. Un lenguaje que no describe sino que mancha — signos asignificantes de colores no-diferenciados, en tanto performatividad absoluta del cuerpo.
-      </p>
     </div>
   </section>
 
@@ -435,11 +411,12 @@
             <strong><em>Y la luna lucía luminosa</em></strong> (Herring Publishers, 2024),
             <strong><em>Sentémonos en la tierra</em></strong> (Taller de las flores raras, 2025)
             y <strong><em>???;) — Pregunta pregunta pregunta guiño</em></strong> (Floresta Efímera · CCEMx, 2025).
-            Sus textos han aparecido en <em>Tierra Adentro</em> (FCE), <em>Punto en Línea</em> (UNAM)
-            y <em>Opción</em> (ITAM), entre otras publicaciones.
           </p>
           <p>
-            Publica <strong>Cuadernos del Ser</strong>, una bitácora de escritura viva en Substack.
+            Sus textos han aparecido en <em>Tierra Adentro</em> (FCE), <em>Punto en Línea</em> (UNAM), <em>Opción</em> (ITAM), <em>Digo.Palabra.txt</em> (Venezuela), <em>Revista El Humo</em> (Querétaro), entre otras publicaciones. Se ha presentado en festivales y recintos como <em>Forfatterskole</em> (Copenhagen, 2018), <em>La Praga</em> (Madrid, 2019), <em>Umbral</em> (Querétaro-CDMX, 2019), <em>Cut Out Fest</em> (Querétaro-CDMX, 2022), <em>Centro Cultural de España en México</em> (CDMX, 2023), <em>Galería Municipal Rosario Sánchez de Lozada</em> (Querétaro, 2024), entre otros.
+          </p>
+          <p>
+            Publica <strong>Cuadernos del Ser</strong>, una bitácora de escritura viva en Substack donde habitan sus textos sueltos más recientes.
           </p>
           <div class="reconocimientos" id="reconocimientos">
             <div class="section-divider" style="margin-top:2rem; margin-bottom:1.5rem;">
@@ -513,31 +490,6 @@
           <span class="libro-tag">Poesía</span>
         </a>
       </div>
-
-      <div class="section-divider" style="margin-top: 3.5rem;">
-        <span class="section-label">En proceso</span>
-        <div class="divider-line"></div>
-      </div>
-      <div class="libros-grid">
-        <div class="libro-card inedito">
-          <span class="libro-num">VII</span>
-          <h2 class="libro-title">Labyrinthos</h2>
-          <p class="libro-editorial">Poesía · inédito</p>
-          <span class="libro-tag-inedito">En escritura</span>
-        </div>
-        <div class="libro-card inedito">
-          <span class="libro-num">VIII</span>
-          <h2 class="libro-title">Maneras de Mirar Milagros</h2>
-          <p class="libro-editorial">Poesía · inédito</p>
-          <span class="libro-tag-inedito">En escritura</span>
-        </div>
-        <div class="libro-card inedito">
-          <span class="libro-num">IX</span>
-          <h2 class="libro-title">Nuestra Eternidad</h2>
-          <p class="libro-editorial">Poesía · inédito</p>
-          <span class="libro-tag-inedito">En escritura</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -550,7 +502,7 @@
       <div class="textos-list">
         <a class="texto-item" href="https://medium.com/@sammtza/la-fantas%C3%ADa-mesi%C3%A1nica-con-tintes-ut%C3%B3picos-el-%C3%BAltimo-refugio-para-mantener-la-persistencia-y-la-7d82ac91b85b" target="_blank" rel="noopener">
           <span class="texto-year-col">2019</span>
-          <span class="texto-title-col">Ensayo sobre la imaginación vívida</span>
+          <span class="texto-title-col">La fantasía mesiánica con tintes utópicos: el último refugio para mantener la persistencia y la potencia de imaginar vívidamente</span>
           <span class="texto-pub-col">Medium</span>
           <span class="texto-arrow">→</span>
         </a>
@@ -613,18 +565,6 @@
         <div class="divider-line"></div>
       </div>
       <div class="textos-list">
-        <a class="texto-item" href="https://www.goodreads.com/es/book/show/33620091-y-la-luna-luc-a-luminosa" target="_blank" rel="noopener">
-          <span class="texto-year-col">2024</span>
-          <span class="texto-title-col">Reseñas de lectores de <em>Y la luna lucía luminosa</em></span>
-          <span class="texto-pub-col">Goodreads</span>
-          <span class="texto-arrow">→</span>
-        </a>
-        <a class="texto-item" href="https://contigoenladistancia.cultura.gob.mx/detalle/takeover-de-samuel-martinez-andrade" target="_blank" rel="noopener">
-          <span class="texto-year-col">2020</span>
-          <span class="texto-title-col">Takeover de Samuel Martínez Andrade</span>
-          <span class="texto-pub-col">Cultura CDMX · MACQ</span>
-          <span class="texto-arrow">→</span>
-        </a>
         <a class="texto-item" href="https://periodicopoetico.wordpress.com/2025/04/28/entrevista-de-ana-laura-bravo-con-samuel-martinez-andrade-sobre-su-libro-y-la-luna-lucia-luminosa/" target="_blank" rel="noopener">
           <span class="texto-year-col">2025</span>
           <span class="texto-title-col">Entrevista sobre <em>Y la luna lucía luminosa</em></span>
@@ -647,6 +587,12 @@
           <span class="texto-year-col">2025</span>
           <span class="texto-title-col">Reseña de <em>Y la luna lucía luminosa</em></span>
           <span class="texto-pub-col">Los Políticos Veracruz</span>
+          <span class="texto-arrow">→</span>
+        </a>
+        <a class="texto-item" href="https://www.goodreads.com/es/book/show/33620091-y-la-luna-luc-a-luminosa" target="_blank" rel="noopener">
+          <span class="texto-year-col">2024</span>
+          <span class="texto-title-col">Reseñas de lectores de <em>Y la luna lucía luminosa</em></span>
+          <span class="texto-pub-col">Goodreads</span>
           <span class="texto-arrow">→</span>
         </a>
       </div>
@@ -698,7 +644,7 @@
         if (!res.ok) throw new Error('fetch');
         const data = await res.json();
         if (!data.items || !data.items.length) throw new Error('empty');
-        feed.innerHTML = data.items.map(item => {
+        feed.innerHTML = data.items.slice(0, 3).map(item => {
           const d = new Date(item.pubDate);
           const date = d.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
           return '<a class="substack-post" href="' + item.link + '" target="_blank" rel="noopener">'
@@ -723,20 +669,17 @@
 
   <script>
   (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const canvas = document.getElementById('flow-canvas');
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let W, H, particles = [], cols, rows, field = [];
+    let W, H, particles = [];
     const SCALE = 5, SPEED = 0.32, FADE = 0.025, COUNT = 480;
-    const ACCENT = [201, 137, 58];
 
     function resize() {
       W = canvas.width = window.innerWidth;
       H = canvas.height = window.innerHeight;
-      cols = Math.ceil(W / SCALE) + 1;
-      rows = Math.ceil(H / SCALE) + 1;
-      field = new Float32Array(cols * rows);
       initParticles();
     }
 
@@ -779,17 +722,6 @@
     }
 
     let t = 0, frame = 0;
-    function updateField() {
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          const n = noise2(x * 0.014 + t * 0.022, y * 0.014 + t * 0.016);
-          const n2 = noise2(x * 0.010 - t * 0.014, y * 0.010 + t * 0.018);
-          field[y * cols + x] = (n + n2) * Math.PI * 2.2;
-        }
-      }
-    }
-
-    window.addEventListener('resize', resize);
 
     // Mouse interaction
     let mouse = { x: -9999, y: -9999, active: false };
@@ -800,47 +732,36 @@
     });
     window.addEventListener('mouseleave', () => { mouse.active = false; });
 
-    // Override updateField to include mouse repulsion
-    function updateFieldWithMouse() {
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          const n = noise2(x * 0.014 + t * 0.022, y * 0.014 + t * 0.016);
-          const n2 = noise2(x * 0.010 - t * 0.014, y * 0.010 + t * 0.018);
-          let angle = (n + n2) * Math.PI * 2.2;
-
-          if (mouse.active) {
-            const wx = x * SCALE;
-            const wy = y * SCALE;
-            const dx = wx - mouse.x;
-            const dy = wy - mouse.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            const radius = 140;
-            if (dist < radius) {
-              const strength = (1 - dist / radius) * 1.8;
-              const awayAngle = Math.atan2(dy, dx);
-              angle = angle + (awayAngle - angle) * strength * 0.6;
-            }
-          }
-          field[y * cols + x] = angle;
+    // Flow direction computed only where each particle is (same grid and formula as before)
+    function angleAt(cx, cy) {
+      const n = noise2(cx * 0.014 + t * 0.022, cy * 0.014 + t * 0.016);
+      const n2 = noise2(cx * 0.010 - t * 0.014, cy * 0.010 + t * 0.018);
+      let angle = (n + n2) * Math.PI * 2.2;
+      if (mouse.active) {
+        const dx = cx * SCALE - mouse.x;
+        const dy = cy * SCALE - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const radius = 140;
+        if (dist < radius) {
+          const strength = (1 - dist / radius) * 1.8;
+          const awayAngle = Math.atan2(dy, dx);
+          angle = angle + (awayAngle - angle) * strength * 0.6;
         }
       }
+      return angle;
     }
 
-    // Patch draw to use mouse-aware field update
     function draw() {
       ctx.globalCompositeOperation = 'destination-out';
       ctx.fillStyle = 'rgba(0, 0, 0, ' + FADE + ')';
       ctx.fillRect(0, 0, W, H);
-      if ((frame = (frame || 0) + 1) % 20 === 0) { ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'; ctx.fillRect(0, 0, W, H); }
+      if (++frame % 20 === 0) { ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'; ctx.fillRect(0, 0, W, H); }
       ctx.globalCompositeOperation = 'source-over';
-      updateFieldWithMouse();
       for (const p of particles) {
-        const cx = Math.floor(p.x / SCALE);
-        const cy = Math.floor(p.y / SCALE);
-        if (cx < 0 || cx >= cols || cy < 0 || cy >= rows) {
+        if (p.x < 0 || p.x >= W || p.y < 0 || p.y >= H) {
           p.x = Math.random() * W; p.y = Math.random() * H; p.age = 0; continue;
         }
-        const angle = field[cy * cols + cx];
+        const angle = angleAt(Math.floor(p.x / SCALE), Math.floor(p.y / SCALE));
 
         if (mouse.active) {
           const dx = p.x - mouse.x;
@@ -876,6 +797,7 @@
       requestAnimationFrame(draw);
     }
 
+    window.addEventListener('resize', resize);
     resize();
     ctx.clearRect(0, 0, W, H);
     draw();
@@ -883,3 +805,4 @@
   </script>
 
 </body>
+</html>
